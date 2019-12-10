@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" label="Tasker Response" max_length="40" name="x_153465_discovert_discover_tasker_response" type="collection">
+        <element label="Response Journal" max_length="4000" name="response_journal" type="journal"/>
+        <element label="Workspace URL" max_length="255" name="workspace_url" type="string"/>
+    </element>
+</database>

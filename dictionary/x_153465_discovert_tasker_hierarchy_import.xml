@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="Import Tasker Hierarchy" max_length="40" name="x_153465_discovert_tasker_hierarchy_import" type="collection">
+        <element label="Sys ID" max_length="40" name="dt_sys_id" type="string"/>
+        <element label="Level Order" max_length="40" name="level_order" type="integer"/>
+        <element label="OU Abbreviation" max_length="15" name="office_abbreviation" type="string"/>
+        <element label="OU Name" max_length="255" name="office_name" type="string"/>
+        <element label="OU Parent" max_length="32" name="office_parent" type="string"/>
+        <element label="Parent" max_length="32" name="parent" type="string"/>
+    </element>
+</database>

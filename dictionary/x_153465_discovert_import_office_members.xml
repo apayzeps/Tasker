@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="Import Office Members" max_length="40" name="x_153465_discovert_import_office_members" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Global Hierarchy Administrator: User can add/update/delete OUs/Sub OUs &amp; Members" max_length="40" name="u_global_hiera__ous___members" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Global Import: User can import the Organization Hierarchy?" max_length="40" name="u_global_impor_ion_hierarchy_" type="string"/>
+        <element attributes="import_attribute_name=Is this User an Administrator for the OU?,edge_encryption_enabled=true" label="Is this User an Administrator for the OU?" max_length="40" name="u_is_this_user_or_for_the_ou_" type="string"/>
+        <element attributes="import_attribute_name=Is this User a Tasking Authority for the OU?,edge_encryption_enabled=true" label="Is this User a Tasking Authority for the OU?" max_length="40" name="u_is_this_user_ty_for_the_ou_" type="string"/>
+        <element attributes="import_attribute_name=Member OU,edge_encryption_enabled=true" label="Member OU" max_length="32" name="u_member_ou" type="string"/>
+        <element attributes="import_attribute_name=Member User,edge_encryption_enabled=true" label="Member User" max_length="32" name="u_member_user" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="OU Hierarchy Administrator: User can add/update/delete only Sub OUs &amp; Members?" max_length="40" name="u_ou_hierarchy_ous___members_" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Title" max_length="40" name="u_title" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="User can add/update/delete Members to the OU?" max_length="40" name="u_user_can_add_ers_to_the_ou_" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="User can add/update/delete process permissions for Global\OU\Personal processes?" max_length="40" name="u_user_can_add_nal_processes_" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="User can create/update/delete Global processes?" max_length="40" name="u_user_can_cre_bal_processes_" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="User can create/update/delete Personal processes?" max_length="40" name="u_user_can_cre_nal_processes_" type="string"/>
+        <element attributes="import_attribute_name=User can create a personal profile,edge_encryption_enabled=true" label="User can create a personal profile" max_length="40" name="u_user_can_cre_rsonal_profile" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="User can create/update/delete OU processes?" max_length="40" name="u_user_can_cre__ou_processes_" type="string"/>
+        <element attributes="import_attribute_name=User can import organization chart,edge_encryption_enabled=true" label="User can import organization chart" max_length="40" name="u_user_can_imp_nization_chart" type="string"/>
+        <element attributes="import_attribute_name=User can manage OU members,edge_encryption_enabled=true" label="User can manage OU members" max_length="40" name="u_user_can_manage_ou_members" type="string"/>
+        <element attributes="import_attribute_name=User can manage OU notification profile,edge_encryption_enabled=true" label="User can manage OU notification profile" max_length="40" name="u_user_can_man_cation_profile" type="string"/>
+        <element attributes="import_attribute_name=User can manage process permissions,edge_encryption_enabled=true" label="User can manage process permissions" max_length="40" name="u_user_can_man_ss_permissions" type="string"/>
+        <element attributes="import_attribute_name=User has global profile permissions,edge_encryption_enabled=true" label="User has global profile permissions" max_length="40" name="u_user_has_glo_le_permissions" type="string"/>
+        <element attributes="import_attribute_name=User has global administration permissions,edge_encryption_enabled=true" label="User has global administration permissions" max_length="40" name="u_user_has_glo_on_permissions" type="string"/>
+        <element attributes="import_attribute_name=User has global process permissions,edge_encryption_enabled=true" label="User has global process permissions" max_length="40" name="u_user_has_glo_ss_permissions" type="string"/>
+        <element attributes="import_attribute_name=User has OU process permissions,edge_encryption_enabled=true" label="User has OU process permissions" max_length="40" name="u_user_has_ou__ss_permissions" type="string"/>
+        <element attributes="import_attribute_name=User has personal process permissions,edge_encryption_enabled=true" label="User has personal process permissions" max_length="40" name="u_user_has_per_ss_permissions" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="User is Global Tasking Authority?" max_length="40" name="u_user_is_glob_ing_authority_" type="string"/>
+        <element attributes="import_attribute_name=User is global tasking authority,edge_encryption_enabled=true" label="User is global tasking authority" max_length="40" name="u_user_is_glob_king_authority" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="User is OU Tasking Authority?" max_length="40" name="u_user_is_ou_t_ing_authority_" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="User is Tasker Application Administrator?" max_length="40" name="u_user_is_task_administrator_" type="string"/>
+        <element attributes="import_attribute_name=User is Tasker Application Admin,edge_encryption_enabled=true" label="User is Tasker Application Admin" max_length="40" name="u_user_is_task_lication_admin" type="string"/>
+    </element>
+</database>
