@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function ($scope, $rootScope, $http, $timeout, $location) {
+	var c = this;
+
+	
+	
+
+var currentTable = $location.search()['table']
+
+var currentPage = $location.search()['id'];
+	
+var label = $location.search()['label'];
+
+
+
+	
+//var ariaLabel = $("#x2319a93cdb915340bb8ee536ca9619cd > li:nth-child(7) > a").attr("aria-label");
+	
+//var labels=[];
+	
+
+ $scope.$on('$locationChangeStart',function(event,current,old){
+	
+	 var new_page = $location.search()['id'];
+	
+	if(new_page != currentPage){
+			$('a').not(':contains("acvedsfa")').css("background-color", 'transparent');
+	}
+
+	 
+ 
+			
+	
+ })
+
+
+
+ 	if($( "a:contains('"+label+"')").length == 1){
+		$( "a:contains('"+label+"')" ).css("background-color", '#1C2433');
+		$('a').not(':contains('+label+')').css("background-color", 'transparent')
+
+ 	}
+	
+
+
+	
+
+	// Hides the new button in the suggested task split-view page
+
+	if(currentTable == "x_153465_discovert_suggested_taskers"){
+		
+// 		label = (document.location.search.split("&")[3].replace("?","").split("=")[1]);
+// 			label = label.replace(/%20/g , ' ');
+// 		if($( "a:contains('"+label+"')").length == 1){
+// 		$( "a:contains('"+label+"')" ).css("background-color", '#31708F');
+// 		$('a').not(':contains('+label+')').css("background-color", 'transparent')
+
+// 	}
+		setTimeout(function(){
+  $('button[name="new"]').remove();
+
+}, 100);
+		
+	}
+	// TODO -  hide the attahcment paperclip and the edit buttons form the attachemnt widget in the tasker details page based on roles
+	
+//	if(currentPage == 'discovertasker_taskdetails'){
+//		$('button[title="Add attachment"]').css('display','none')
+//	}
+	
+	// Adds the page title to the split-view pages based on the label parameter from the url
+	
+	$( ".panel-heading .panel-title.ng-binding" ).html(label);
+
+}
+
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>discovertasker-work-around</id>
+        <internal>false</internal>
+        <link/>
+        <name>Tasker work-around</name>
+        <option_schema/>
+        <public>false</public>
+        <roles>x_153465_discovert.tasker_user</roles>
+        <script><![CDATA[(function($sp, input, data, options, gs) {
+	
+
+	
+	
+})($sp, input, data, options, gs);
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-05-22 00:17:21</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>6355929cdbdadf003a8d6be3ca96195c</sys_id>
+        <sys_mod_count>520</sys_mod_count>
+        <sys_name>Tasker work-around</sys_name>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy>protected</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sp_widget_6355929cdbdadf003a8d6be3ca96195c</sys_update_name>
+        <sys_updated_by>KTorres</sys_updated_by>
+        <sys_updated_on>2019-03-20 18:58:04</sys_updated_on>
+        <template/>
+    </sp_widget>
+</record_update>

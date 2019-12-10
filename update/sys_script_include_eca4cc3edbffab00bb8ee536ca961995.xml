@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_153465_discovert.ClientTaskInfo</api_name>
+        <client_callable>true</client_callable>
+        <description>Has two funcitons: &#13;
+1 - taskParentHasSubtasks() - returns number of children tasks the parent task has.&#13;
+2 - taskGetTaskSysId() -  Returns the task sys_id for a task that was created from a suggested task&#13;
+</description>
+        <name>ClientTaskInfo</name>
+        <script><![CDATA[var ClientTaskInfo = Class.create();
+ClientTaskInfo.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	
+	taskParentHasSubtasks: function () {
+		var parentID = this.getParameter("parentID");
+		var data ;
+		var gr = new GlideRecord('x_153465_discovert_route_task_instance');
+		
+		gr.addQuery('sys_id',parentID);
+		gr.query();
+		
+		while(gr.next()){
+			data = gr.calchaschildren;
+		} 
+		return data;
+	},
+	taskGetTaskSysId: function(){
+		var suggested_task_number = this.getParameter("suggested_task_sys_id");
+		var gr = new GlideRecord('x_153465_discovert_route_task_instance');
+		
+		gr.addQuery('suggested_task',suggested_task_number);
+		gr.query();
+		
+		var new_task_id;
+		
+		while(gr.next()){
+			new_task_id = gr.sys_id;
+		} 
+		return new_task_id;
+	}
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>aalzyoud</sys_created_by>
+        <sys_created_on>2019-02-26 18:04:26</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>eca4cc3edbffab00bb8ee536ca961995</sys_id>
+        <sys_mod_count>27</sys_mod_count>
+        <sys_name>ClientTaskInfo</sys_name>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sys_script_include_eca4cc3edbffab00bb8ee536ca961995</sys_update_name>
+        <sys_updated_by>aalzyoud</sys_updated_by>
+        <sys_updated_on>2019-03-15 16:07:37</sys_updated_on>
+    </sys_script_include>
+</record_update>

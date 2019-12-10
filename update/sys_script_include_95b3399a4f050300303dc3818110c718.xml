@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_153465_discovert.AdhocWorkflow</api_name>
+        <client_callable>true</client_callable>
+        <description>Test Launching a workflow</description>
+        <name>AdhocWorkflow</name>
+        <script><![CDATA[var AdhocWorkflow = Class.create();
+AdhocWorkflow.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	launchWorkflow: function(strWFID, current, operation, vars){		
+		// RAJ - 2018-02-22 STRY0010778 - Remove Routes, everything in this script was only gs.info statements, the gs.info statements were changed to debug
+		var wf = new global.Workflow();
+		gs.debug("Discover_Process_Template - About to Launch - strWFID:" + strWFID + " - current_Sys_id: " + current.Sys_id + "- u_route_template_definition" + vars.u_route_template_definition + " - operation:" + operation);
+		wf.startFlow(strWFID, current, operation, vars);
+	},
+	
+    type: 'AdhocWorkflow'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-09-09 03:37:08</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>95b3399a4f050300303dc3818110c718</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>AdhocWorkflow</sys_name>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy>protected</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sys_script_include_95b3399a4f050300303dc3818110c718</sys_update_name>
+        <sys_updated_by>rjoy</sys_updated_by>
+        <sys_updated_on>2018-03-09 21:10:12</sys_updated_on>
+    </sys_script_include>
+</record_update>

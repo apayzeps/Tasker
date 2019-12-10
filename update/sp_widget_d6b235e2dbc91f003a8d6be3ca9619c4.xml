@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function ($scope, spUtil) {
+//------------------------------------------------------------------------------------------------------------------------
+// WIDGET BASE: FIELDS
+// COMPANY: DISCOVER TECHNOLOGIES
+// CUSTOMIZED BY: KARINA TORRES
+//------------------------------------------------------------------------------------------------------------------------
+	spUtil.recordWatch($scope, $scope.data.table, "sys_id=" + $scope.data.sys_id); 
+	var onListClick = $scope.$on('$sp.list.click', refreshWidget);
+	var onSaveUpdate = $scope.$on('sp.form.record.updated', refreshWidget);
+
+	
+	function refreshWidget(evt,arg) {
+		$scope.server.update();
+	}
+}
+
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>//------------------------------------------------------------------------------------------------------------------------
+// COMPANY: DISCOVER TECHNOLOGIES
+// CUSTOMIZED BY: KARINA TORRES
+// WIDGET BASE: FIELDS
+//------------------------------------------------------------------------------------------------------------------------
+.options-btn {
+    border:none;
+    background-image:none;
+    background-color:transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.glyphicon {
+	padding-right: 5px;
+}
+
+.header-label {
+    font-color: red;//#004475;
+}
+
+.progress {
+	height: 34px;
+
+}
+
+.progress-bar {
+	color: #fff!important;
+  font-size: 14px!important;
+  vertical-align: middle;
+	text-align: center;
+  padding-top: 5px;
+}
+
+.bg-success,
+.icon-success {
+    color: #37C1C3;
+  	background-color: #37C1C3!important;
+}
+
+.bg-danger,
+.icon-danger {
+    color: #FF6B61;
+  	background-color: #FF6B61!important;
+}
+
+.bg-warning,
+.icon-warning {
+    color: #F6C716;
+  	background-color: #F6C716!important;
+}
+
+.bg-primary,
+.icon-primary {
+    color: #2E3C54;
+  	background-color: #2E3C54!important;
+}
+
+.bg-info,
+.icon-info {
+    color: #17A2B8;
+  	background-color: #17A2B8!important;
+}
+
+.bg-default,
+.icon-default {
+    color: #808080;
+  	background-color: #808080!important;
+}
+
+.bg-disabled,
+.icon-disabled {
+    color: #AAB2BD;
+  	background-color: #AAB2BD!important;
+}
+
+.bg-assigned {
+    color: #4D8FAC;
+  	background-color: #4D8FAC!important;
+}
+
+.bg-unassigned {
+    color: #F6C716;
+  	background-color: #F6C716!important;
+}
+
+.bg-accepted {
+    color: #A0D468;
+  	background-color: #A0D468!important;
+}
+
+.bg-review {
+    color: #9A59B5;
+  	background-color: #9A59B5!important;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>discovertasker-statesmultiplebar</id>
+        <internal>false</internal>
+        <link/>
+        <name>Tasker States Progress Bar</name>
+        <option_schema>[&#13;
+   {&#13;
+      "name": "pickup_msg",&#13;
+      "label": "Pickup message",&#13;
+      "type": "string"&#13;
+   }&#13;
+]</option_schema>
+        <public>false</public>
+        <roles>x_153465_discovert.tasker_user</roles>
+        <script><![CDATA[//------------------------------------------------------------------------------------------------------------------------
+// COMPANY: DISCOVER TECHNOLOGIES
+// CUSTOMIZED BY: KARINA TORRES
+// WIDGET BASE: FIELDS
+//------------------------------------------------------------------------------------------------------------------------
+(function(){
+	data.pickupMsg = gs.getMessage(options.pickup_msg);
+	var gr = $sp.getRecord();
+	if (gr == null)
+		return;
+	
+	data.canRead = gr.canRead();
+	if (!data.canRead) 
+		return;
+
+	data.tableLabel = gr.getLabel();
+	data.table = gr.getTableName();
+	data.sys_id = gr.getUniqueValue();
+
+	//------------------------------------------------------ KTorres
+		data.nUnassigned = 0;
+		data.nAssigned = 0;
+		data.nAccepted = 0;
+		data.nRejected = 0;
+		data.nWorkScheduled = 0;
+		data.nInProgress = 0;
+		data.nInReview = 0;
+		data.nRework =0;
+		data.nCompleted = 0;
+	  data.nCancelled = 0;
+		data.nIncompleted = 0;
+	
+	/*
+		-5	Awaiting Assignment
+		1	Awaiting Acceptance
+		10	Assignment Accepted
+		11	Assignment Rejected
+		12	Work Scheduled
+		13	Work in Progress
+		14	In Review
+		15	Rework
+		3	Closed Complete
+		4	Closed Incomplete
+		7	Closed Skipped
+	*/	
+		
+	
+	data.calchaschildren = gr.getValue('calchaschildren');
+
+	if(data.calchaschildren > 0){
+		data.nUnassigned = getStateCount(data.table, data.sys_id, -5);
+		data.nAssigned = getStateCount(data.table, data.sys_id, 1);
+		data.nAccepted = getStateCount(data.table, data.sys_id, 10);
+		data.nRejected = getStateCount(data.table, data.sys_id, 11);
+		data.nWorkScheduled = getStateCount(data.table, data.sys_id, 12);
+		data.nInProgress = getStateCount(data.table, data.sys_id, 13);
+		data.nInReview = getStateCount(data.table, data.sys_id, 14);
+		data.nRework = getStateCount(data.table, data.sys_id, 15);
+		data.nCompleted = getStateCount(data.table, data.sys_id, 3);
+		data.nIncompleted = getStateCount(data.table, data.sys_id, 4);
+		data.nCanceled = getStateCount(data.table, data.sys_id, 7);
+	}
+
+//-------------------------------------------------------------------------------------------------------------------
+	function getStateCount(table, sys_id, statevalue) {
+
+		var nTotal = 0;
+		var nSubTotal = 0;
+		var grTaskInstance;
+		var grTaskInstanceSubTotal;
+		var percentage = 0;
+
+		grTaskInstance = new GlideAggregate(table);
+		grTaskInstance.addQuery('parent',sys_id); 
+		grTaskInstance.addAggregate('COUNT');
+		grTaskInstance.query();
+		
+		if(grTaskInstance.next()) {
+			nTotal = grTaskInstance.getAggregate('COUNT'); 
+		}
+		
+		grTaskInstanceSubTotal = new GlideAggregate(table);
+		grTaskInstanceSubTotal.addQuery('parent',sys_id);
+		grTaskInstanceSubTotal.addQuery('state',statevalue);
+		grTaskInstanceSubTotal.addAggregate('COUNT');
+		grTaskInstanceSubTotal.query();
+		
+		
+		if(grTaskInstanceSubTotal.next()) {
+			nSubTotal = grTaskInstanceSubTotal.getAggregate('COUNT'); 
+			percentage = (nSubTotal * 100 / nTotal).toFixed(1);
+		}
+		
+		return percentage;
+	}
+	
+})()
+
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>KTorres</sys_created_by>
+        <sys_created_on>2018-03-27 18:13:50</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>d6b235e2dbc91f003a8d6be3ca9619c4</sys_id>
+        <sys_mod_count>140</sys_mod_count>
+        <sys_name>Tasker States Progress Bar</sys_name>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy>protected</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sp_widget_d6b235e2dbc91f003a8d6be3ca9619c4</sys_update_name>
+        <sys_updated_by>aalzyoud</sys_updated_by>
+        <sys_updated_on>2019-03-20 18:58:02</sys_updated_on>
+        <template><![CDATA[<div ng-if="data.canRead" >
+  <div ng-if="data.calchaschildren > 0" class="progress">
+  	<div class="progress-bar bg-unassigned" role="progressbar" style="width: {{data.nUnassigned}}%" aria-valuenow="{{data.nUnassigned}}" aria-valuemin="0" aria-valuemax="100"> 
+      <span class="label label-as-badge label-primary ng-binding ng-scope" ng-if="rdata.nUnassigned > 0">{{data.nUnassigned}}</span>
+      {{data.nUnassigned}}% Unassigned</div>
+    <div class="progress-bar bg-assigned" role="progressbar" style="width: {{data.nAssigned}}%" aria-valuenow="{{data.nAssigned}}" aria-valuemin="0" aria-valuemax="100"> {{data.nAssigned}}% Assigned</div>
+    <div class="progress-bar bg-accepted" role="progressbar" style="width: {{data.nAccepted}}%" aria-valuenow="{{data.nAccepted}}" aria-valuemin="0" aria-valuemax="100"> {{data.nAccepted}}% Accepted</div>
+    <div class="progress-bar bg-danger" role="progressbar" style="width: {{data.nRejected}}%" aria-valuenow="{{data.nRejected}}" aria-valuemin="0" aria-valuemax="100"> {{data.nRejected}}% Rejected</div>
+    <div class="progress-bar bg-primary" role="progressbar" style="width: {{data.nWorkScheduled}}%" aria-valuenow="{{data.nWorkScheduled}}" aria-valuemin="0" aria-valuemax="100"> {{data.nWorkScheduled}}% Scheduled</div>
+    <div class="progress-bar bg-primary" role="progressbar" style="width: {{data.nInProgress}}%" aria-valuenow="{{data.nInProgress}}" aria-valuemin="0" aria-valuemax="100"> {{data.nInProgress}}% In Progress</div>
+    <div class="progress-bar bg-review" role="progressbar" style="width: {{data.nInReview}}%" aria-valuenow="{{data.nInReview}}" aria-valuemin="0" aria-valuemax="100"> {{data.nInReview}}% In Review</div>
+    <div class="progress-bar bg-primary" role="progressbar" style="width: {{data.nRework}}%" aria-valuenow="{{data.nRework}}" aria-valuemin="0" aria-valuemax="100"> {{data.nRework}}% Rework</div>
+    <div class="progress-bar bg-success" role="progressbar" style="width: {{data.nCompleted}}%" aria-valuenow="{{data.nCompleted}}" aria-valuemin="0" aria-valuemax="100"> {{data.nCompleted}}% Completed</div>
+    <div class="progress-bar bg-success" role="progressbar" style="width: {{data.nCanceled}}%" aria-valuenow="{{data.nCompleted}}" aria-valuemin="0" aria-valuemax="100"> {{data.nCanceled}}% Canceled</div>
+    <div class="progress-bar bg-success" role="progressbar" style="width: {{data.nIncompleted}}%" aria-valuenow="{{data.nCompleted}}" aria-valuemin="0" aria-valuemax="100"> {{data.nIncompleted}}% Incompleted</div>
+	</div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

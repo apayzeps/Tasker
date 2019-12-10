@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_153465_discovert.TaskerCommonScriptingMethods</api_name>
+        <client_callable>false</client_callable>
+        <description>Common server-side scripting patterns that occur within the application</description>
+        <name>TaskerCommonScriptingMethods</name>
+        <script><![CDATA[var TaskerCommonScriptingMethods = Class.create();
+TaskerCommonScriptingMethods.prototype = {
+    initialize: function() {
+    },
+	checkException: function(title, reportingFunction, e) {
+		reportingFunction("["+title+"] Error: " + e + " in " + e.fileName + " at " + e.lineNumber + ".");
+	},
+	invalidPermissionsMessage: function(title, operationName, reportingFunction) {
+		reportingFunction("["+title+"] unable to perform " + operationName + " with current permissions.");
+	},
+	commonMessage: function(title, message, reportingFunction) {
+		reportingFunction("["+title+"] "+ message);
+	},
+	checkUserForSingleRoleMatch: function(user, roles) {
+		var result = false;
+		roles.forEach(function(role) {
+			if(user.hasRole(role)) {
+				result = true;
+				return;
+			}
+		});
+		return result;
+	},
+	checkUserMatchAllRoles: function(user, roles) {
+		var result = false;
+		roles.forEach(function(role) {
+			if(user.hasRole(role)) {
+				result = true;
+			} else {
+				result = false;
+				return;
+			}
+		});
+		return result;
+	},
+	/**
+		Method: queryRelated
+		---------
+		Examples:
+		---------
+		
+		queries: [
+			{
+				"sys_id": "123abc12345"
+			},
+			{
+				"active": "true"
+			}
+		]
+		callback: function(glideRecord) {
+			var recordValue = glideRecord.getValue('someField');
+			return performSingleAction(recordValue);
+		}
+		
+		---------
+		Useage:
+		---------
+			//jshint esnext: true
+			var commonScriptingMethods = new TaskerCommonScriptingMethods();
+			var tableName = "x_12345_SomeTable";
+			var queries = [{ "sys_id": gs.getUserID()}]
+			commonScriptingMethods.queryRelated(tableName, queries, function(record){
+				if(recordIsOuTa(record)) {
+					return true;
+				}
+				return false;
+			})
+		---------
+		Notes:
+		---------
+		The queryRelatedShort method differs from the queryRelated method by providing a short circuit evaluation mechanism which allows for an early break from the looping through items by returning null from the callback function. Returning null indicates that the loop should be broken and accumulated results returned to the caller immediately.
+	*/
+	queryRelated: function(targetTableName, queries, callback) {
+		return this.queryRelatedShort(targetTableName, queries, callback, false);
+	},
+	queryRelatedOr: function(targetTableName, andQueries, orQueries, callback) {
+		return this.queryRelatedOrShort(targetTableName, andQueries, orQueries, callback, false);
+	},
+	queryRelatedShort: function(targetTableName, queries, callback, shortCircuitOnNull) {
+		return this.queryRelatedOrShort(targetTableName, queries, null, callback, shortCircuitOnNull);
+	},
+	queryRelatedOrShort: function(targetTableName, andQueries, orQueries, callback, shortCircuitOnNull) {
+		var query = new GlideRecord(targetTableName);
+		var lastAndCond = null;
+		// use as many queries as you need with structure above
+		if(andQueries && andQueries != null) {
+			for(var i=0; i< andQueries.length; i++) {
+				var elem = andQueries[i];
+				if(elem) {
+					var key = Object.keys(elem)[0];
+					var value = elem[key];
+					lastAndCond = query.addQuery(key, value);
+				}
+			}
+		}
+		if(orQueries && orQueries != null) {
+			
+			for(var j=0; j< orQueries.length; j++) {
+				var elem2 = orQueries[j];
+				
+				if(elem2) {
+					var key2 = Object.keys(elem2)[0];
+					var value2 = elem2[key2];
+					if(j == 0 && lastAndCond == null) {
+						lastAndCond = query.addQuery(key2, value2);
+					} else {
+						lastAndCond.addOrCondition(key2, value2);
+					}
+				}
+			}
+		}
+		
+		// perform the query
+		query.query();
+		var resultArray = [];
+		while(query.next()) {
+			var callbackResult = callback(query);
+			if(callbackResult !== null) {
+				resultArray.push(callbackResult);
+			} else if(shortCircuitOnNull) {
+				break;
+			}
+		}
+		return resultArray;
+	},
+    type: 'TaskerCommonScriptingMethods'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>kbaton</sys_created_by>
+        <sys_created_on>2019-02-27 18:53:40</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>f0b3990bdbff6340c18c59b2ca961995</sys_id>
+        <sys_mod_count>39</sys_mod_count>
+        <sys_name>TaskerCommonScriptingMethods</sys_name>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sys_script_include_f0b3990bdbff6340c18c59b2ca961995</sys_update_name>
+        <sys_updated_by>kbaton</sys_updated_by>
+        <sys_updated_on>2019-03-21 14:38:27</sys_updated_on>
+    </sys_script_include>
+</record_update>

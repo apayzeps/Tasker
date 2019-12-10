@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_153465_discovert_discover_office_members</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Tasker OU Mem - onChange - Update roles</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[/*jshint esnext: true */
+(function executeRule(current, previous /*null when async*/) {
+	var grRole;
+	var UserPermissions = new UserInfoScripts();
+	
+	//***********************************************************************
+	// ADD role x_153465_discovert.tasker_user
+	//***********************************************************************
+	if(current.operation() == 'insert'){
+		// sys_id for this role x_153465_discovert.tasker_user is 0ba867804f181b00303dc3818110c7fa
+		if(	UserPermissions.addRole(current.office_member, 'x_153465_discovert.tasker_user'))
+			gs.addInfoMessage('Role x_153465_discovert.tasker_user added to user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+	}
+
+	//***********************************************************************
+	// ADD role x_153465_discovert.tasker_global_Tasking_Authority_member_admin
+	//***********************************************************************
+	if(current.is_global_tasking_authority){
+			// sys_id for this role x_153465_discovert.tasker_global_Tasking_Authority_member_admin is 9d3a9b4bdb7497003a8d6be3ca961975
+			if(	UserPermissions.addRole(current.office_member, 'x_153465_discovert.tasker_global_Tasking_Authority_member_admin'))
+				gs.addInfoMessage('Role x_153465_discovert.tasker_global_Tasking_Authority_member_admin added to user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+	} else {
+		//***********************************************************************
+		// REMOVE Role role x_153465_discovert.tasker_global_Tasking_Authority_member_admin
+		//***********************************************************************
+		if(UserPermissions.removeRole(current.office_member, 'is_global_tasking_authority', 'x_153465_discovert.tasker_global_Tasking_Authority_member_admin'))
+				gs.addInfoMessage('Role: x_153465_discovert.tasker_global_Tasking_Authority_member_admin - removed from user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+	}
+	
+	//***********************************************************************
+	// ADD role x_153465_discovert.tasker_organizational_admin
+	//***********************************************************************
+	if(current.user_is_organization_admin){
+			// sys_id for this role x_153465_discovert.tasker_organizational_admin is 3cf96cec4f505b00303dc3818110c759
+			if(	UserPermissions.addRole(current.office_member, 'x_153465_discovert.tasker_organizational_admin'))
+				gs.addInfoMessage('Role x_153465_discovert.tasker_organizational_admin added to user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+	} else {
+		//***********************************************************************
+		// REMOVE Role role x_153465_discovert.tasker_organizational_admin
+		//***********************************************************************
+		if(UserPermissions.removeRole(current.office_member, 'user_is_organization_admin', 'x_153465_discovert.tasker_organizational_admin'))
+				gs.addInfoMessage('Role: x_153465_discovert.tasker_organizational_admin - removed from user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+	}
+
+	//***********************************************************************
+	// ADD role x_153465_discovert.x_153465_discovert.tasker_application_admin
+	//***********************************************************************
+	if(current.is_tasker_application_admin){
+			// sys_id for this role x_153465_discovert.x_153465_discovert.tasker_application_admin is 25c624d04f981b00303dc3818110c74a
+		if(	UserPermissions.addRole(current.office_member, 'x_153465_discovert.x_153465_discovert.tasker_application_admin'))
+			gs.addInfoMessage('Role x_153465_discovert.x_153465_discovert.tasker_application_admin added to user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+	} else {
+		//***********************************************************************
+		// REMOVE Role role x_153465_discovert.x_153465_discovert.tasker_application_admin
+		//***********************************************************************
+		if(UserPermissions.removeRole(current.office_member, 'is_tasker_application_admin', 'x_153465_discovert.tasker_application_admin'))
+			gs.addInfoMessage('Role: x_153465_discovert.x_153465_discovert.tasker_application_admin - removed from user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+	}
+	
+	//***********************************************************************
+	// ADD role x_153465_discovert.tasker_single_ou_admin
+	//***********************************************************************
+	if(current.is_office_administrator){
+		// sys_id for this role x_153465_discovert.tasker_single_ou_admin is d5f6e8684f505b00303dc3818110c751
+		if(UserPermissions.addRole(current.office_member, 'x_153465_discovert.tasker_single_ou_admin'))
+			gs.addInfoMessage('Role x_153465_discovert.tasker_single_ou_admin added to user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+	} else {
+		//***********************************************************************
+		// REMOVE role x_153465_discovert.tasker_single_ou_admin
+		//***********************************************************************
+		if(UserPermissions.removeRole(current.office_member, 'is_office_administrator', 'x_153465_discovert.tasker_single_ou_admin'))
+			gs.addInfoMessage('Role: x_153465_discovert.tasker_single_ou_member_admin - removed from user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+	}
+
+	
+	//***********************************************************************
+	// ADD role x_153465_discovert.tasker_single_ou_member_admin
+	//***********************************************************************
+	if( current.can_manage_ou_members){
+		// sys_id for this role x_153465_discovert.tasker_single_ou_member_admin is f50e14284f505b00303dc3818110c71b
+		if(UserPermissions.addRole(current.office_member, 'x_153465_discovert.tasker_single_ou_member_admin'))
+			gs.addInfoMessage('Role x_153465_discovert.tasker_single_ou_member_admin added to user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+		
+	} else {
+		//***********************************************************************
+		// REMOVE role x_153465_discovert.tasker_single_ou_member_admin
+		//***********************************************************************
+		if(UserPermissions.removeRole(current.office_member, 'can_manage_ou_members', 'x_153465_discovert.tasker_single_ou_member_admin'))
+			gs.addInfoMessage('Role: x_153465_discovert.tasker_single_ou_member_admin - removed from user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+	}
+
+	//***********************************************************************
+	// ADD role x_153465_discovert.x_153465_discovert.tasker_hierarchy_import_user
+	//***********************************************************************
+	if( current.can_import_ou_hierarchy){
+		// sys_id for this role x_153465_discovert.x_153465_discovert.tasker_hierarchy_import_user is 31744630dbbc53003a8d6be3ca9619fc
+		if(UserPermissions.addRole(current.office_member, 'x_153465_discovert.tasker_hierarchy_import_user'))
+			gs.addInfoMessage('Role x_153465_discovert.tasker_hierarchy_import_user added to user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+		
+	} else {
+		//***********************************************************************
+		// REMOVE role x_153465_discovert.x_153465_discovert.tasker_hierarchy_import_user
+		//***********************************************************************
+		if(UserPermissions.removeRole(current.office_member, 'can_import_ou_hierarchy', 'x_153465_discovert.x_153465_discovert.tasker_hierarchy_import_user'))
+			gs.addInfoMessage('Role: x_153465_discovert.tasker_hierarchy_import_user - removed from user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+	}
+
+	//***********************************************************************
+	// ADD role x_153465_discovert.tasker_process_template_admin
+	//***********************************************************************
+	if( current.can_manage_process_permissions){
+		// sys_id for this role x_153465_discovert.tasker_process_template_admin is ac5b7c284f905b00303dc3818110c703
+		if(UserPermissions.addRole(current.office_member, 'x_153465_discovert.tasker_process_template_admin'))
+			gs.addInfoMessage('Role x_153465_discovert.tasker_process_template_admin added to user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+		
+	} else {
+		//***********************************************************************
+		// REMOVE role x_153465_discovert.tasker_process_template_admin
+		//***********************************************************************
+		if(UserPermissions.removeRole(current.office_member, 'can_manage_process_permissions', 'x_153465_discovert.tasker_process_template_admin'))
+			gs.addInfoMessage('Role: x_153465_discovert.tasker_process_template_admin - removed from user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+	}
+
+	//***********************************************************************
+	// ADD role x_153465_discovert.tasker_process_template_global
+	//***********************************************************************
+	if( current.can_manage_global_processes ){
+		// sys_id for this role x_153465_discovert.tasker_process_template_global is 02ba70284f905b00303dc3818110c763
+		if(UserPermissions.addRole(current.office_member, 'x_153465_discovert.tasker_process_template_global'))
+			gs.addInfoMessage('Role x_153465_discovert.tasker_process_template_global added to user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+		
+	} else {
+		//***********************************************************************
+		// REMOVE role x_153465_discovert.tasker_process_template_global
+		//***********************************************************************
+		if(UserPermissions.removeRole(current.office_member, 'can_manage_global_processes', 'x_153465_discovert.tasker_process_template_global'))
+			gs.addInfoMessage('Role: x_153465_discovert.tasker_process_template_global - removed from user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+	}
+
+	//***********************************************************************
+	// ADD role x_153465_discovert.tasker_process_template_ou
+	//***********************************************************************
+	if( current.has_ou_process_rights){
+		// sys_id for this role x_153465_discovert.tasker_process_template_ou is 7db970284f905b00303dc3818110c7e4
+		if(UserPermissions.addRole(current.office_member, 'x_153465_discovert.tasker_process_template_ou'))
+			gs.addInfoMessage('Role x_153465_discovert.tasker_process_template_ou added to user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+		
+	} else {
+		//***********************************************************************
+		// REMOVE role x_153465_discovert.tasker_process_template_ou
+		//***********************************************************************
+		if(UserPermissions.removeRole(current.office_member, 'has_ou_process_rights', 'x_153465_discovert.tasker_process_template_ou'))
+			gs.addInfoMessage('Role: x_153465_discovert.tasker_process_template_ou - removed from user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+	}
+	
+	//***********************************************************************
+	// ADD role x_153465_discovert.tasker_process_template_user
+	//***********************************************************************
+	if( current.has_personal_process_rights){
+		// sys_id for this role x_153465_discovert.tasker_process_template_user is 7775bc644f905b00303dc3818110c76f
+		if(UserPermissions.addRole(current.office_member, 'x_153465_discovert.tasker_process_template_user'))
+			gs.addInfoMessage('Role x_153465_discovert.tasker_process_template_user added to user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+		
+	} else {
+		//***********************************************************************
+		// REMOVE role x_153465_discovert.tasker_process_template_user
+		//***********************************************************************
+		if(UserPermissions.removeRole(current.office_member, 'has_personal_process_rights', 'x_153465_discovert.tasker_process_template_user'))
+			gs.addInfoMessage('Role: x_153465_discovert.tasker_process_template_user - removed from user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+	}
+	
+//INACTIVE: ALL CUSTOM NOTIFICATIONS
+/*
+	//***********************************************************************
+	// ADD role x_153465_discovert.tasker_user_profile_admin
+	//***********************************************************************
+	if( current.user_is_notification_profile_admin && (current.operation() == 'insert') || (current.operation() == 'update' && current.user_is_notification_profile_admin != previous.user_is_notification_profile_admin)){
+		// sys_id for this role x_153465_discovert.tasker_user_profile_admin is d5d08de84f905b00303dc3818110c761
+		if(UserPermissions.addRole(current.office_member, 'x_153465_discovert.tasker_user_profile_admin'))
+			gs.addInfoMessage('Role x_153465_discovert.tasker_user_profile_admin added to user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+		
+	}
+
+	//***********************************************************************
+	// REMOVE role x_153465_discovert.tasker_user_profile_admin
+	//***********************************************************************
+	if (!current.user_is_notification_profile_admin && (current.operation() == 'update' && current.user_is_notification_profile_admin != previous.user_is_notification_profile_admin)){
+				if(UserPermissions.removeRole(current.office_member, 'user_is_notification_profile_admin', 'x_153465_discovert.tasker_user_profile_admin'))
+					gs.addInfoMessage('Role: x_153465_discovert.tasker_user_profile_admin - removed from user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+		
+	}		
+	
+	//***********************************************************************
+	// ADD role x_153465_discovert.tasker_user_profile_ou_admin
+	//***********************************************************************
+	if( current.can_manage_ou_notification_profile && (current.operation() == 'insert') || (current.operation() == 'update' && current.can_manage_ou_notification_profile != previous.can_manage_ou_notification_profile)){
+		// sys_id for this role x_153465_discovert.tasker_user_profile_ou_admin is a5508de84f905b00303dc3818110c75e
+		if(UserPermissions.addRole(current.office_member, 'x_153465_discovert.tasker_user_profile_ou_admin'))
+			gs.addInfoMessage('Role x_153465_discovert.tasker_user_profile_ou_admin added to user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+		
+	}
+
+	//***********************************************************************
+	// REMOVE role x_153465_discovert.tasker_user_profile_ou_admin
+	//***********************************************************************
+	if (!current.can_manage_ou_notification_profile && (current.operation() == 'update' && current.can_manage_ou_notification_profile != previous.can_manage_ou_notification_profile)){
+				if(UserPermissions.removeRole(current.office_member, 'can_manage_ou_notification_profile', 'x_153465_discovert.tasker_user_profile_ou_admin'))
+					gs.addInfoMessage('Role: x_153465_discovert.tasker_user_profile_ou_admin - removed from user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+		
+	}		
+	
+	//***********************************************************************
+	// ADD role x_153465_discovert.tasker_user_profile_my_profile_admin
+	//***********************************************************************
+	if( current.can_manage_personal_notification_profile && (current.operation() == 'insert') || (current.operation() == 'update' && current.can_manage_personal_notification_profile != previous.can_manage_personal_notification_profile)){
+		// sys_id for this role x_153465_discovert.tasker_user_profile_my_profile_admin is 2e5dbc684f905b00303dc3818110c7d5
+		if(UserPermissions.addRole(current.office_member, 'x_153465_discovert.tasker_user_profile_my_profile_admin'))
+			gs.addInfoMessage('Role x_153465_discovert.tasker_user_profile_my_profile_admin added to user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+		
+	}
+
+	//***********************************************************************
+	// REMOVE role x_153465_discovert.tasker_user_profile_my_profile_admin
+	//***********************************************************************
+	if (!current.can_manage_personal_notification_profile && (current.operation() == 'update' && current.can_manage_personal_notification_profile != previous.can_manage_personal_notification_profile)){
+				if(UserPermissions.removeRole(current.office_member, 'can_manage_personal_notification_profile', 'x_153465_discovert.tasker_user_profile_my_profile_admin'))
+					gs.addInfoMessage('Role: x_153465_discovert.tasker_user_profile_my_profile_admin - removed from user: ' + current.office_member.first_name + ' ' + current.office_member.middle_name + ' ' + current.office_member.last_name);
+		
+	}		
+*/	
+	
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>rjoy</sys_created_by>
+        <sys_created_on>2018-06-14 04:50:05</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>e7ffa1b3dbeadb003a8d6be3ca9619fb</sys_id>
+        <sys_mod_count>55</sys_mod_count>
+        <sys_name>Tasker OU Mem - onChange - Update roles</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy>protected</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sys_script_e7ffa1b3dbeadb003a8d6be3ca9619fb</sys_update_name>
+        <sys_updated_by>KTorres</sys_updated_by>
+        <sys_updated_on>2019-03-14 16:56:16</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=e7ffa1b3dbeadb003a8d6be3ca9619fb"/>
+</record_update>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_153465_discovert.uiConditionCheck</api_name>
+        <client_callable>false</client_callable>
+        <description>A Script include for UI Action Conditions; &#13;
+- CancelUIAction&#13;
+- Mark as Complete on time</description>
+        <name>uiConditionCheck</name>
+        <script><![CDATA[var uiConditionCheck = Class.create();
+uiConditionCheck.prototype = {
+	initialize: function() {
+		
+		
+	},
+	CancelUIAction: function(gr){
+		var canRead = gr.canRead();
+		var isActive = gr.active;
+		var isGlobalTA_OR_OUTA = new UserInfoScripts().IsUserTaskingAuthority(gr.primary_assignee, gs.getUserID());
+		var reviewer = gr.u_reviewer;
+		
+		if( ((isActive && (isGlobalTA_OR_OUTA || (gs.getUserID() == reviewer))))){
+			return true;
+			
+		}else{
+			return false;
+			
+		}
+	},
+	// 	current.canRead()  && current.sys_id != -1 && current.active == true &&  current.state == 13 && current.extension_requested == false  && (current.assigned_to == gs.getUserID());
+	RequestExtension: function(gr){
+		var canRead = gr.canRead();
+		var newRecord = gr.sys_id;
+		var isActive = gr.active;
+		var state = gr.state;
+		var extension_requested  = gr.extension_requested;
+		var assignedTo = gr.assigned_to;
+		var reviewer = gr.u_reviewer;
+		var originator = gr.originator;
+		var currentUser = gs.getUserID();
+		
+		// 		gs.addInfoMessage('reviewer: ' + reviewer + ', originator: ' + originator + ', assignedTo: ' + assignedTo + ', Current User: ' + gs.getUserID() + ', active: ' + isActive + ', extension_requested: ' + extension_requested + ', state: ' + state + ', assignedTo: ' + assignedTo +', newRecord: ' + newRecord + ', Can Read: ', + canRead);
+		
+		if((canRead && (newRecord != -1) && isActive == true && state == 13 && (extension_requested == false) && (assignedTo == gs.getUserID())) && !(currentUser == originator && currentUser == reviewer && currentUser == assignedTo)){
+			
+			return true;
+			
+		} else{
+			return false;
+		}
+		
+		
+	},
+	
+	MarkCompletedOnTimeLateUIAction: function(gr){
+		var canRead = gr.canRead();
+		var isCompleted = gr.state;
+		var isGlobalTA_OR_OUTA = new UserInfoScripts().IsUserTaskingAuthority(gr.primary_assignee, gs.getUserID());
+		var reviewer = gr.u_reviewer;
+		var state = gr.state;
+		
+		
+		if ( isCompleted == '3' && (isGlobalTA_OR_OUTA || (gs.getUserID() == reviewer)) ){
+			return true;
+			
+		}else{
+			return false;
+			
+		}
+	},
+	
+	type: 'uiConditionCheck'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>aalzyoud</sys_created_by>
+        <sys_created_on>2019-02-12 18:46:09</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>fbf8049adba72700c18c59b2ca961967</sys_id>
+        <sys_mod_count>45</sys_mod_count>
+        <sys_name>uiConditionCheck</sys_name>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sys_script_include_fbf8049adba72700c18c59b2ca961967</sys_update_name>
+        <sys_updated_by>KTorres</sys_updated_by>
+        <sys_updated_on>2019-03-07 19:37:53</sys_updated_on>
+    </sys_script_include>
+</record_update>

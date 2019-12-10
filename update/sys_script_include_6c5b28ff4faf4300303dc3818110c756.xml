@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_153465_discovert.ClientUserInfoScripts</api_name>
+        <client_callable>true</client_callable>
+        <description>Checks to see if the user given is in the organizational unit provided.  Requires user and Organizational Unit to be provided and returns true or false.</description>
+        <name>ClientUserInfoScripts</name>
+        <script><![CDATA[var ClientUserInfoScripts = Class.create();
+ClientUserInfoScripts.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	
+	IsUserGlobalTA: function()
+	{
+		var userId = this.getParameter('UserId');
+		var ou = this.getParameter('OU');
+		return new UserInfoScripts().IsUserTaskingAuthority(userId, ou);
+	},
+	
+	IsUserInOU: function()
+	{
+		//Query organizational unit members to see if the user is a member
+		var userID = this.getParameter('UserId');
+		var ouID = this.getParameter('OU');
+		
+		var UserPermissions = new UserInfoScripts();	
+		if(UserPermissions.IsUserInOU(ouID,userID)){
+			return true;
+		}
+		else{
+			return false;
+		}
+	},
+	
+	//  RAJ STSK0011104 - allow changing task assingment based on user being a tasking authority 
+	//  changed the script include to add a method to determine if the user is a Tasking Authority
+	IsUserTaskingAuthority: function()
+	{
+		//Query organizational unit members to see if the user is a Tasking Authority for the OU
+		var userID = this.getParameter('UserId');
+		var ouID = this.getParameter('OU');
+		//  RAJ STSK0011104 updated to control whether a user can assign tasks based on Tasking Authority instead of ownership of the task or membership in the OU
+		
+		var UserPermissions  = new UserInfoScripts();
+		if(UserPermissions.IsUserTaskingAuthority(ouID,userID).toString() == 'true'){
+			return true;
+		}
+		else{
+			return false;
+		}
+	},
+	
+	//  RAJ STSK0011104 if the user is NOT a TA, but is in the OU, they can assign themselves to the Tasker, so the user needs to be able to see the "assigned members.  
+//  RAJ STSK0011104 - allow changing task assingment based on user being a tasking authority 
+	//  changed the script include to add a method to determine if the user is a Tasking Authority
+	CanUserAssignSelfOrOthers: function()
+	{
+		//Query organizational unit members to see if the user is a Tasking Authority for the OU
+		var userID = this.getParameter('UserId');
+		var ouID = this.getParameter('OU');
+		//  RAJ STSK0011104 updated to control whether a user can assign tasks based on Tasking Authority instead of ownership of the task or membership in the OU
+		var UserPermissions  = new UserInfoScripts();
+		if(UserPermissions.CanUserAssignSelfOrOthers(ouID,userID)){
+			return true;
+		}
+		else{
+			return false;
+		}
+	},
+		
+	type: 'ClientUserInfoScripts'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-01-15 20:41:19</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>6c5b28ff4faf4300303dc3818110c756</sys_id>
+        <sys_mod_count>24</sys_mod_count>
+        <sys_name>ClientUserInfoScripts</sys_name>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy>protected</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sys_script_include_6c5b28ff4faf4300303dc3818110c756</sys_update_name>
+        <sys_updated_by>kbaton</sys_updated_by>
+        <sys_updated_on>2019-02-19 19:41:32</sys_updated_on>
+    </sys_script_include>
+</record_update>

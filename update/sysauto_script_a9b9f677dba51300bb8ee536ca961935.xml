@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <condition><![CDATA[gs.getProperty('x_153465_discovert.RunDemoData');]]></condition>
+        <conditional>true</conditional>
+        <name>Tasker Demo Data - 05 Start some Accepted Tasks</name>
+        <run_as/>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2018-04-25 17:07:47</run_start>
+        <run_time>1970-01-01 18:20:00</run_time>
+        <run_type>daily</run_type>
+        <script><![CDATA[gs.debug("Tasker Demo Data - 5 Start some Accepted Tasks");
+
+// RAJ - STRY0011695 - change to use Glide Aggregate
+var totalTasks = 0;
+var gaTaskInstances = new GlideAggregate('x_153465_discovert_route_task_instance');
+gaTaskInstances.addQuery('state', 10);
+gaTaskInstances.addQuery('demo_data', true);
+gaTaskInstances.addAggregate('COUNT');
+gaTaskInstances.query();
+if(gaTaskInstances.next()){
+	totalTasks = gaTaskInstances.getAggregate('COUNT');
+}
+
+// Query the database and find tasks
+var taskInstances = new GlideRecord('x_153465_discovert_route_task_instance');
+var gDate = new GlideDate();
+
+//Select tasks in Accepted state.
+taskInstances.addQuery('state', 10);
+taskInstances.addQuery('demo_data', true);
+taskInstances.query();
+var count = 0;
+
+gs.debug("Tasker Demo Data - 5 Start some Accepted Tasks - Starting Number accepted tasks: " + totalTasks);
+
+
+// start tasks 
+while(count < (totalTasks / 2) && taskInstances.next()){
+	if (taskInstances.work_start == null){
+		taskInstances.work_start = gDate;
+		// no expected start date, move to work in progress
+		taskInstances.state = 13;
+	}
+	else if(taskInstances.work_start <= gDate){
+		// expected start date is today or in the past, move to work in Progress
+		taskInstances.state = 13;
+	}
+	else if(taskInstances.work_start > gDate){
+		// expected start date is in the future, move to work Scheduled
+		taskInstances.state = 12;
+	}
+	
+	taskInstances.update();
+	count++;
+}
+
+gs.info("Tasker Demo Data - 5 Start some Accepted Tasks - tasks started or scheduled by the system: " + count);]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>rjoy</sys_created_by>
+        <sys_created_on>2018-04-25 18:51:31</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>a9b9f677dba51300bb8ee536ca961935</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>Tasker Demo Data - 05 Start some Accepted Tasks</sys_name>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy>protected</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sysauto_script_a9b9f677dba51300bb8ee536ca961935</sys_update_name>
+        <sys_updated_by>KTorres</sys_updated_by>
+        <sys_updated_on>2018-11-08 17:46:47</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

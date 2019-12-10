@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="response_type" table="x_153465_discovert_discover_tasker_response" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>response_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Concur / Nonconcur</label>
+            <language>en</language>
+            <name>x_153465_discovert_discover_tasker_response</name>
+            <sequence>100</sequence>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-10-02 20:45:18</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>1518f7fd4f210300303dc3818110c7f0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-10-02 20:45:18</sys_updated_on>
+            <value>concur_nonconcur</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>response_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Approve / Disapprove</label>
+            <language>en</language>
+            <name>x_153465_discovert_discover_tasker_response</name>
+            <sequence>200</sequence>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-10-02 20:46:03</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>83ad373d4f210300303dc3818110c720</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-10-02 20:46:03</sys_updated_on>
+            <value>approve_disapprove</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>response_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Approve / Reject</label>
+            <language>en</language>
+            <name>x_153465_discovert_discover_tasker_response</name>
+            <sequence>300</sequence>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-10-02 20:47:05</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>25edf3fd4f210300303dc3818110c789</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-10-02 20:47:05</sys_updated_on>
+            <value>approve_reject</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>response_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Approve / Decline</label>
+            <language>en</language>
+            <name>x_153465_discovert_discover_tasker_response</name>
+            <sequence>400</sequence>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-10-02 20:47:50</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b01eb3b14f610300303dc3818110c710</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-10-02 20:47:50</sys_updated_on>
+            <value>approve_decline</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>response_type</element>
+            <name>x_153465_discovert_discover_tasker_response</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2017-10-02 20:45:18</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>2e16bf48dbb45300bb8ee536ca961949</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>response_type</sys_name>
+            <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+            <sys_update_name>sys_choice_x_153465_discovert_discover_tasker_response_response_type</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2017-10-02 20:45:18</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

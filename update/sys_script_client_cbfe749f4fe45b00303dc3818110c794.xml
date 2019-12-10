@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>When the Tasking Authority on the process defiition changes prompt the user before updating all of the children.</description>
+        <field>tasking_authority</field>
+        <global>true</global>
+        <isolate_script>false</isolate_script>
+        <messages/>
+        <name>Tasker Def - onChange Tasking Authority</name>
+        <order/>
+        <script><![CDATA[// RAJ - STRY 0011909 - modify process template
+// Chanded this client script from Process definition table to Tasker definition table
+function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+	if (isLoading || newValue === '') {
+		return;
+	}
+ var blnChangeAssignment = true;
+ // RAJ 2018-02-13 if there was a Tasking Authority assigned, check if the task has children.
+ if (oldValue != ""){
+	// TODO, WHEN HERE FOR DIALOG FIX THIS.
+	// THERE IS NO CHILDREN COUNT ON A TASK DEFINITION.
+	// EITHER ADD A GLIDE AGGREGATE OR ADD LOGIC AND FIX SCRIPT TO KEEP TRACK OF CHILDREN SO THIS WORKS
+ 	if (g_scratchpad.calchaschildren>0){
+// TODO - THIS MESSAGE NEEDS TO BE CHANGED INTO A DIALOG				
+// 		blnChangeAssignment = confirm('THIS MESSAGE NEEDS TO BE CHANGED INTO A DIALOG SO USERS CAN MAKE A CHOICE AND THE TEXT IS READ FROM A LANGUAGE TABLE...                                 Changing the Tasking Authority will force an update on the Tasking Authority on all descendents of this Process Definition.  Do you still want to change the Tasking Authority?');
+ 	}
+// TODO - would like to set the field on teh screen back to the old value.
+			// when the line below is added, the screen fires the onchange again.
+			// need to figure out how to change back without the popup coming up again.
+			//g_form.setValue('tasking_authority',oldValue);	 
+ 	if(!blnChangeAssignment){
+ 		return false;  // reset the Tasking Authority back to the old value
+ 	}
+ }
+	// RAJ - remove getReference
+	//g_form.getReference('tasking_authority', useTaskingAuthorityReference);
+	if (newValue) {
+		if (newValue != oldValue) {
+			var ga = new GlideAjax('ClientOrganizationalScripts');
+			ga.addParam('sysparm_name', 'getTaskingAuthorityOrganizationalUnit');
+			ga.addParam('sysParam_TaskingAuthority', g_form.getValue('tasking_authority'));
+			ga.getXML(updatePrimaryOffice);
+		}
+	}
+	
+}
+
+function updatePrimaryOffice(response) {
+	
+	var answer = response.responseXML.documentElement.getAttribute("answer");
+	if (answer != ''){
+		g_form.clearValue('primary_office');
+		g_form.setValue('primary_office',answer);
+		g_form.setReadOnly('primary_office',true);
+	}
+	else{
+		g_form.setReadOnly('primary_office',false);
+	}
+	
+}
+// function useTaskingAuthorityReference(TA){
+// 	if (TA.external_flag.toString() == 'false'){
+// 		g_form.clearValue('primary_office');
+// 		g_form.setValue('primary_office',TA.organizational_unit.toString());
+// 		g_form.setReadOnly('primary_office',true);
+// 	}
+// 	else{
+// 		if(g_scratchpad.taskDefParent == ''){
+// 			g_form.setReadOnly('primary_office',false);	
+// 		}
+// 		else{
+// 			g_form.setReadOnly('primary_office',true);
+// 		}
+// 	}
+	
+// }]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-03-05 01:58:52</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>cbfe749f4fe45b00303dc3818110c794</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Tasker Def - onChange Tasking Authority</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy>protected</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sys_script_client_cbfe749f4fe45b00303dc3818110c794</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-07-18 20:29:23</sys_updated_on>
+        <table>x_153465_discovert_route_tasks</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <before>false</before>
+        <description>Syncronizes permissions of all users that have records in OU Members table.</description>
+        <flush_cache>true</flush_cache>
+        <name>Sync OU Member Permissions</name>
+        <record_for_rollback>false</record_for_rollback>
+        <run_once>true</run_once>
+        <script><![CDATA[/*jshint esnext: true */
+var tcs  = new TaskerCommonScriptingMethods();
+var userTableName = "sys_user";
+var ouMemberTableName = "x_153465_discovert_discover_office_members";
+
+//synchronizes all checked fields with the found member records
+var allUsers = tcs.queryRelated(userTableName, null, function(user) {
+	var ouMemberQuery = [{"office_member": user.sys_id}];
+	var modCount = 0;
+	tcs.queryRelated(ouMemberTableName, ouMemberQuery, function(memberRecord) {
+		memberRecord.sys_mod_count++;
+		memberRecord.update();
+		modCount++;
+		return null;
+	});
+	if(modCount > 0) {
+		tcs.commonMessage("OU Perm Fix", "User: " + user.name + " "+ modCount+ " record(s) updated.", gs.info );
+	}
+	modCount = 0;
+});
+
+//2dd4acc5db4d5b003a8d6be3ca9619b2
+// var ouMemberQuery = [{"office_member": "2dd4acc5db4d5b003a8d6be3ca9619b2"}];]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>kbaton</sys_created_by>
+        <sys_created_on>2019-03-14 16:49:09</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>6e994e3bdb8c3f40bb8ee536ca961920</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>Sync OU Member Permissions</sys_name>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sys_script_fix_6e994e3bdb8c3f40bb8ee536ca961920</sys_update_name>
+        <sys_updated_by>kbaton</sys_updated_by>
+        <sys_updated_on>2019-03-25 15:10:02</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

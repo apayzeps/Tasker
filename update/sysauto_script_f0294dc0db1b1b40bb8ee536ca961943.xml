@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition/>
+        <conditional>false</conditional>
+        <name>DiscoverTasker - Start  Process Schedules</name>
+        <run_as/>
+        <run_as_tz>US/Eastern</run_as_tz>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2018-07-09 17:08:36</run_start>
+        <run_time>1970-01-01 12:00:00</run_time>
+        <run_type>on_demand</run_type>
+        <script><![CDATA[var recurringFunctions = new Tasker_RecurringTask_Functions();
+recurringFunctions.findAndStartRecurringTaskersDaily();]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>rjoy</sys_created_by>
+        <sys_created_on>2018-07-09 17:09:17</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>f0294dc0db1b1b40bb8ee536ca961943</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>DiscoverTasker - Start  Process Schedules</sys_name>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy>protected</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sysauto_script_f0294dc0db1b1b40bb8ee536ca961943</sys_update_name>
+        <sys_updated_by>aalzyoud</sys_updated_by>
+        <sys_updated_on>2019-03-13 23:07:32</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

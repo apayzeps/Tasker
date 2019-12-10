@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <condition><![CDATA[// NOTE we would want either System Property or some flag in the app to determine if Demo Environment.
+// This condition needs to be built to account for that.
+// in demo or test environment we may want to launch all templates daily, but not in prod env
+// this could also be an independent flag "launch templates daily"
+gs.getProperty('x_153465_discovert.RunDemoData');]]></condition>
+        <conditional>true</conditional>
+        <name>Tasker Demo Data - 01 Launch All Process Templates</name>
+        <run_as/>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2017-12-08 16:47:52</run_start>
+        <run_time>1970-01-01 16:00:00</run_time>
+        <run_type>daily</run_type>
+        <script><![CDATA[gs.info("Tasker Demo Data-Launch All Process Templates - Auto start all Process Templates Template Name");
+// Query the database and find all Process Templates
+var processTemplates = new GlideRecord('x_153465_discovert_discover_routing_template');
+processTemplates.addQuery('demo_data',true);
+processTemplates.query();
+
+// launch all  process template at whatever period set for this script
+while(processTemplates.next()){
+	//Set Impersonate
+	// don't need to impersonate anymore
+	//gs.getSession().impersonate(processTemplates.process_owner);
+	// RAJ STRY0011656 swap to use new event queue mechanism
+	gs.eventQueue('x_153465_discovert.Start_Process_Def', processTemplates, 'Start Process',  processTemplates.process_owner);
+	
+	gs.debug("Tasker Demo Data-Launch All Process Templates - Auto - Template Name = " + processTemplates.template_name);
+	gs.debug("Tasker Demo Data-Launch All Process Templates - Auto - Template Onwer = " + processTemplates.process_owner);
+
+// RAJ - not needed any more.  The workflow starts based on the process instance insert
+// 	var recRunTemp = new GlideRecord('x_153465_discovert_discover_routing_runtime');
+// 	recRunTemp.initialize();
+// 	recRunTemp.routing_template_ref = processTemplates.sys_id;
+// 	recRunTemp.insert();
+	
+// 	gs.debug("Tasker Demo Data-Launch All Process Templates - Runtime Instance Created sys_id:" + recRunTemp.sys_id);
+
+// 	var wf = new global.Workflow();
+// 	var  wfId = wf.getWorkflowFromName("Discover Process Template");
+// 	wf.startFlow(wfId, recRunTemp, 'Insert');
+// 	gs.debug("Tasker Demo Data-Launch All Process Templates - completed should have started workflow");
+}
+
+
+
+
+]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>rjoy</sys_created_by>
+        <sys_created_on>2017-12-08 16:48:47</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>d0c9c0a34ff2c300303dc3818110c7c1</sys_id>
+        <sys_mod_count>29</sys_mod_count>
+        <sys_name>Tasker Demo Data - 01 Launch All Process Templates</sys_name>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy>protected</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sysauto_script_d0c9c0a34ff2c300303dc3818110c7c1</sys_update_name>
+        <sys_updated_by>KTorres</sys_updated_by>
+        <sys_updated_on>2019-03-06 20:01:44</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

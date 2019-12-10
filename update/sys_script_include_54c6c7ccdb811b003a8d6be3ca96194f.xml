@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_153465_discovert.UserInfoScripts</api_name>
+        <client_callable>false</client_callable>
+        <description>The Tasker User Info Scripts are all in this Script Include.  These fuctions are called from business rules filters and client scripts through the ClientUserInfoScripts script incluide</description>
+        <name>UserInfoScripts</name>
+        <script><![CDATA[//  RAJ new functions called by client and server events.
+// this keeps all of the code and logic in one place
+var UserInfoScripts = Class.create();
+UserInfoScripts.prototype = {
+	initialize: function() {
+	},
+	
+	//KTORRES: STRY0014160
+	checkMemberinInGroup: function(member, assignment_group) {
+		
+		var userBelongstoGroup = false;
+		var users = new GlideRecord('sys_user_grmember');  
+		users.addQuery('user','=', member);
+		users.addQuery('group','=', assignment_group);
+		users.query();  
+		
+		while (users.next())	{  
+			userBelongstoGroup = true;
+		}
+		
+		return userBelongstoGroup;
+	/*
+		var user = gs.getUser();
+		if(current.assignment_group == '' || user.isMemberOf(current.assignment_group.name.toString())){
+		 answer = true;
+		}
+		else{
+		 answer = false;
+		}
+	*/
+	
+	},
+	
+	IsUserInOU: function(ouID,userID)
+	{
+		//Query organizational unit members to see if the user is a member
+		// RAJ - STRY0011695 - change to use Glide Aggregate
+		var grMembers = new GlideAggregate('x_153465_discovert_discover_office_members');
+		grMembers.addQuery('discover_office_hierarchy', ouID);
+		grMembers.addQuery('office_member', userID);
+		// RAJ - STRY0011695 - change to use Glide Aggregate
+		grMembers.addAggregate('COUNT');
+		grMembers.query();
+		
+		var answer = false;
+		if(grMembers.next()){
+			// RAJ - STRY0011695 - change to use Glide Aggregate
+			if (grMembers.getAggregate('COUNT') > 0){
+				answer = true;
+			}
+		}
+		return answer;
+	},
+	
+	IsUserTaskingAuthority: function(ouID,userID)
+	{
+		//Query organizational unit members to see if the user is a Tasking Authority for the OU
+		//  RAJ STSK0011104 updated to control whether a user can assign tasks based on Tasking Authority instead of ownership of the task or membership in the OU
+		
+		var answer;
+		//var gsUser = gs.getUser(userID).;
+		//gs.info(gsUser.getUserDisplayName());
+		if(gs.getUser(userID).hasRole('x_153465_discovert.tasker_global_Tasking_Authority_member_admin')){
+			answer = true;
+		}
+		else{
+			// RAJ - STRY0011695 - change to use Glide Aggregate
+			var grMembers = new GlideAggregate('x_153465_discovert_discover_office_members');
+			grMembers.addQuery('discover_office_hierarchy', ouID);
+			grMembers.addQuery('office_member', userID);
+			grMembers.addQuery('office_task_authority', 'true');
+			// RAJ - STRY0011695 - change to use Glide Aggregate
+			grMembers.addAggregate('COUNT');
+			
+			grMembers.query();
+			answer = false;
+			if(grMembers.next()){
+				// RAJ - STRY0011695 - change to use Glide Aggregate
+				if (grMembers.getAggregate('COUNT') > 0){
+					answer = true;
+				}
+			}
+			//gs.info("Discover Tasker - Aggregate Test IsUserTaskingAuthority - answer: " + answer);
+		}
+		return answer;
+	},
+	
+	//  RAJ STSK0011104 if the user is NOT a TA, but is in the OU, they can assign themselves to the Tasker, so the user needs to be able to see the "assigned members.
+	//  RAJ STSK0011104 - allow changing task assingment based on user being a tasking authority
+	//  changed the script include to add a method to determine if the user is a Tasking Authority
+	CanUserAssignSelfOrOthers: function(ouID,userID)
+	{
+		//Query organizational unit members to see if the user is a Tasking Authority for the OU
+		//  RAJ STSK0011104 updated to control whether a user can assign tasks based on Tasking Authority instead of ownership of the task or membership in the OU
+		if(this.IsUserTaskingAuthority(ouID,userID) || this.IsUserInOU(ouID,userID)){
+			return true;
+		}
+		else{
+			return false;
+		}
+	},
+	
+	ManageUserRoleCheckAndAdd: function(office_member, role_name, role_id)
+	{
+		var roleAdded = false;
+		// Add role if member does not have it
+		var grRole = new GlideRecord('sys_user_has_role');
+		grRole.addQuery('user', office_member);
+		grRole.addQuery('role.name', role_name);
+		grRole.query();
+		if (!grRole.next()) {
+			grRole.initialize();
+			grRole.user = office_member;
+			grRole.role = role_id;
+			grRole.insert();
+			roleAdded = true;
+		}
+		return roleAdded;
+	},
+	
+	ManageUserRoleCheckAndDelete: function(office_member, office_member_permission_field, role_name)
+	{
+		var roleDeleted = false;
+		// office administrator removed.  If this user is not an administrator of any other offices, the role single_ou_admin should be removed
+		var grMemOUs = new GlideRecord("x_153465_discovert_discover_office_members");
+		grMemOUs.addQuery('office_member', office_member);
+		
+		if(office_member_permission_field != ''){
+			grMemOUs.addQuery(office_member_permission_field,true);
+		}
+		
+		// if no other records found, remove role
+		if (!grMemOUs.next()){
+			var hasRole = new GlideRecord('sys_user_has_role');
+			hasRole.addQuery('user', office_member);
+			hasRole.addQuery('role.name', role_name);
+			hasRole.query();
+			if (hasRole.next()) {
+				hasRole.deleteRecord();
+				roleDeleted = true;
+			}
+		}
+		return roleDeleted;
+	},
+	getRoleIdByName: function(role_name) {
+		var roles = new GlideRecord("sys_user_role");
+		roles.addQuery("name", role_name);
+		roles.query();
+		if(roles.next()) {
+			return roles.sys_id;
+		}
+		return "";
+	},
+	addRole: function(user_id, role_name)
+	{
+		var role_id = this.getRoleIdByName(role_name);
+		if(!role_id || role_id == null || role_id == '')
+			return false;
+		var roleAdded = false;
+		// Add role if member does not have it
+		var grRole = new GlideRecord('sys_user_has_role');
+		grRole.addQuery('user', user_id);
+		grRole.addQuery('role', role_id);
+		grRole.query();
+		if (!grRole.next()) {
+			grRole.initialize();
+			grRole.user = user_id;
+			grRole.role = role_id;
+			grRole.insert();
+			roleAdded = true;
+		}
+		return roleAdded;
+	},
+	removeRole: function(user_id, field, role_name)
+	{
+		var role_id = this.getRoleIdByName(role_name);
+		if(!role_id || role_id == null || role_id == '')
+			return false;
+		var roleDeleted = false;
+				
+		var grMemOUs = new GlideRecord("x_153465_discovert_discover_office_members");
+		grMemOUs.addQuery('office_member', user_id);
+		
+		if(field != ''){
+			grMemOUs.addQuery(field,true);
+		}
+		
+		// if no other records found, remove role
+		if (!grMemOUs.next()){
+			var grRole = new GlideRecord('sys_user_has_role');
+			grRole.addQuery('user', user_id);
+			grRole.addQuery('role', role_id);
+			grRole.query();
+			if (grRole.next()) {
+				grRole.deleteRecord();
+				roleDeleted = true;
+			}
+		}
+		return roleDeleted;
+	},
+	type: 'UserInfoScripts'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>rjoy</sys_created_by>
+        <sys_created_on>2018-03-20 05:57:49</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>54c6c7ccdb811b003a8d6be3ca96194f</sys_id>
+        <sys_mod_count>52</sys_mod_count>
+        <sys_name>UserInfoScripts</sys_name>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy>protected</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sys_script_include_54c6c7ccdb811b003a8d6be3ca96194f</sys_update_name>
+        <sys_updated_by>kbaton</sys_updated_by>
+        <sys_updated_on>2019-03-14 15:44:41</sys_updated_on>
+    </sys_script_include>
+</record_update>

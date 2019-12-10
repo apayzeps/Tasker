@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name>Discover_Run_Template</action_name>
+        <active>true</active>
+        <client>false</client>
+        <client_script_v2/>
+        <comments/>
+        <condition>(current.sys_id != -1)</condition>
+        <form_action>true</form_action>
+        <form_button>false</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>true</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style/>
+        <hint>current.canCreate()  &amp;&amp; Start the Routing Template</hint>
+        <isolate_script>false</isolate_script>
+        <list_action>true</list_action>
+        <list_banner_button>true</list_banner_button>
+        <list_button>true</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>true</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <name>Run Process Template</name>
+        <onclick>runTemplateClick()</onclick>
+        <order>0</order>
+        <script><![CDATA[if(typeof window == 'undefined'){
+	gs.info("running on submit function ");
+	runTemplate();
+	gs.addInfoMessage('DiscoverTasker is running the process to create the Taskers in your Process Template');
+}
+
+function runTemplate()
+{
+	
+	//gs.info ( '$$$$$ Submitted from the Portal' );
+	//gs.info ( '$$$$$ ' );
+	
+	
+	// Create a new runtime table row
+	// RAJ 2017-10-20 moved from the workflow here to create the runtime instance before starting thw workflow
+	// RAJ 2017-10-20 Changed the Workflow to be based in the intance Table 
+// ******************************************************************************************
+// UNCOMMENT THIS SECTION TO REVERT TO NOT USING AN EVENT AND CREATE THE INSTANCE FROM THE UI ACTION
+// THIS IS WHAT JIMMY IS TRYING TO FIX
+// ******************************************************************************************
+//   	var recRunTemp = new GlideRecord('x_153465_discovert_discover_routing_runtime');
+//   	recRunTemp.initialize();
+//   	recRunTemp.setValue ( 'routing_template_ref', current.sys_id );
+//   	//recRunTemp.routing_template_ref = current.sys_id;
+//   	gs.info('****************** TEST ' + recRunTemp.routing_template_ref);
+//    gs.info("Discover Run Template - UI Action - Instance Proc Template sys_id:" + recRunTemp.routing_template_ref);
+//   	recRunTemp.insert();
+// ******************************************************************************************
+// END OF CREATE THE INSTANCE FROM THE UI ACTION
+// ******************************************************************************************
+
+// ******************************************************************************************
+// UNCOMMENT THIS SECTION TO CREATE AN EVENT THAT CREATES THE INSTANCE AND STARTS WORKFLOW
+// THIS IS USING AN EVENT AND FAILS B/C THE EVENT CAN'T BE RUN AS THE CURRENT USER
+// ******************************************************************************************
+	// RAJ for testing of using an event only...
+
+
+	gs.eventQueue('x_153465_discovert.Start_Process_Def', current, '',  gs.getUserID());
+// ******************************************************************************************
+// END SECTION TO CREATE AN EVENT THAT CREATES THE INSTANCE AND STARTS WORKFLOW
+// ******************************************************************************************
+// 	// RAJ STRY0011407 moved into the before Insert of Process Instance
+// 	gs.info("Discover Run Template - UI Action - Runtime Instance Created sys_id:" + recRunTemp.sys_id);
+// 	var recTaskInst = new GlideRecord('x_153465_discovert_route_task_instance');
+// 	recTaskInst.initialize();
+	
+// 	// RAJ - 2018-02-20 STRY0010829 - Short Desc and Instructions are missing in the Top Task . They need to be copied from the Process Definition.
+// 	// had to change the line below to current.sys_id from recRunTemp.sys_id.
+// 	// The tasker instance insert is expecting the proces definition, not the process instance.
+// 	recTaskInst.child_route_template = current.sys_id;
+// 	recTaskInst.insert();
+// 	gs.info("Discover Run Template - UI Action - Top Task Instance Created sys_id:" + recTaskInst.sys_id + "  Taks Number: " + recTaskInst.number);
+
+// 	gs.info("Discover Run Template - UI Action - Updating Template Instance Parent Task ID");
+// 	recRunTemp.parent_task = recTaskInst.sys_id;
+// 	recRunTemp.update();
+// 	gs.info("Discover Run Template - UI Action - Updated Template Instance Parent Task ID");
+	
+// 	// RAJ - STRY0011407 - Changed to start on insert of the Process Instance.
+	
+// 	var wf = new global.Workflow();
+// 	var  wfId = wf.getWorkflowFromName("Discover Process Template");
+// 	wf.startFlow(wfId, recRunTemp, 'Insert');
+// 	gs.debug("Discover Run Template - UI Action - completed should have started workflow");
+	
+}
+
+]]></script>
+        <show_insert>false</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-09-08 15:47:30</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>0092d38a4f410300303dc3818110c79c</sys_id>
+        <sys_mod_count>116</sys_mod_count>
+        <sys_name>Run Process Template</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy>protected</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sys_ui_action_0092d38a4f410300303dc3818110c79c</sys_update_name>
+        <sys_updated_by>aalzyoud</sys_updated_by>
+        <sys_updated_on>2019-03-06 21:31:57</sys_updated_on>
+        <table>x_153465_discovert_discover_routing_template</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>true</ui16_compatible>
+    </sys_ui_action>
+</record_update>

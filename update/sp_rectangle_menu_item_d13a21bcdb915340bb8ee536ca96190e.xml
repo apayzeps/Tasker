@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rectangle_menu_item">
+    <sp_rectangle_menu_item action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <color>default</color>
+        <condition>gs.isLoggedIn()</condition>
+        <display_1/>
+        <display_2/>
+        <display_date/>
+        <filter/>
+        <glyph>users</glyph>
+        <hint>Awaiting Assignment  (As the OU TA)</hint>
+        <kb_article/>
+        <kb_category/>
+        <kb_topic/>
+        <label>Awaiting Assignment</label>
+        <order>120</order>
+        <record_script><![CDATA[// Menu Item label
+
+var label = 'Awaiting Assignment'
+
+// maximum number of entries in this Menu
+var max = 500;
+
+var t = data;  // shortcut
+t.items = [];
+
+var u = gs.getUser().getID();
+// use record watchers to tell header when to update dropdown counts
+t.record_watchers = [];
+t.record_watchers.push({'table':'x_153465_discovert_route_task_instance','filter':'stateIN-5,11'});
+
+//KTORRES: BASED ON PRIMARY ASSIGNEE TA
+//------------------------------------------------------------------------------------------------------------------
+//var primary_assigneeFilter = 'primary_assigneeINa1dadcc64f820300303dc3818110c7e3,5ecc47ed4fca0300303dc3818110c7af';
+var primary_assigneeFilter = "primary_assigneeIN";
+var grPrimaryAssigneeTA = new GlideRecord('x_153465_discovert_discover_office_members');
+grPrimaryAssigneeTA.addQuery('office_task_authority', 'true');
+grPrimaryAssigneeTA.addEncodedQuery('office_memberDYNAMIC90d1921e5f510100a9ad2572f2b477fe');
+grPrimaryAssigneeTA.orderByDesc('sys_updated_on');
+grPrimaryAssigneeTA.query();
+
+while (grPrimaryAssigneeTA.next()) {
+  primary_assigneeFilter += (',' + grPrimaryAssigneeTA.discover_office_hierarchy.toString());
+}
+//------------------------------------------------------------------------------------------------------------------
+
+var z = new GlideRecord('x_153465_discovert_route_task_instance');
+z.addActiveQuery();
+//First Req
+//z.addEncodedQuery('originatorDYNAMIC90d1921e5f510100a9ad2572f2b477fe');
+
+//without RE-ROUTE TASK BANNER
+//z.addQuery('state', 'IN', '-5,11');//STATE IS UNASSIGNED OR OR REJECTED
+//z.addEncodedQuery(primary_assigneeFilter);
+
+//Adding RE-ROUTE TASK BANNER
+z.addEncodedQuery('state=-5^'+primary_assigneeFilter+'^NQstate=11^assigned_toISNOTEMPTY^'+primary_assigneeFilter);
+z.orderByDesc('sys_updated_on');
+z.setLimit(max);
+z.query();
+var count=0;
+while (z.next() && count < 6) {
+  
+   t.items.push({
+    title: z.getValue('task_name') ,
+    type: 'link',
+    href: '?sys_id='+ z.getValue('sys_id') + '&view=sp&id=discovertasker_taskdetails&table=x_153465_discovert_route_task_instance'
+  }); 
+  if (!z.canRead())
+    continue;
+  
+  var a = {};
+  //$sp.getRecordValues(a, z, 'short_description,sys_id,number,sys_updated_on');
+  if (z.short_description.nil())
+    a.short_description = "(No description)";
+  a.__table = z.getTableName();
+  a.type = 'record';
+  //a.sortOrder = z.sys_updated_on.getGlideObject().getNumericValue();
+  //t.items.push(a);
+  count = count + 1;
+}
+t.items.sort(function(a, b) {
+  return b.sortOrder - a.sortOrder;
+});
+//t.items = t.items.slice(0, max); // only want first 30
+t.items = t.items.slice(0, 5); 
+//t.count = t.items.length;
+t.count = z.getRowCount();
+
+//var link = {title: gs.getMessage('View all requests'), type: 'link', href: '?id=discovertasker_detailsdrilldown&view=Unassigned&table=x_153465_discovert_route_task_instance&filter=reassignment_requested%3Dtrue%5EORstateIN-5%5Esys_created_by%3Djavascript:gs.getUserName();', items: []};
+//KTORRES: BASED ON ORIGINATOR
+//var link = {title: gs.getMessage('View all requests'), type: 'link', href: '?id=discovertasker_detailsdrilldown&view=Unassigned&table=x_153465_discovert_route_task_instance&filter=originatorDYNAMIC90d1921e5f510100a9ad2572f2b477fe%5EstateIN-5%5EEQ', items: []};
+//KTORRES: BASED ON PRIMARY ASSIGNEE TA, without RE-ROUTE TASK BANNER
+//var link = {title: gs.getMessage('View all requests'), type: 'link', href: '?id=discovertasker_detailsdrilldown&view=Unassigned&table=x_153465_discovert_route_task_instance&filter='+primary_assigneeFilter+'%5EstateIN-5,11%5EEQ', items: []};
+var link = {title: gs.getMessage('View all requests'), type: 'link', href: '?id=discovertasker_detailsdrilldown&view=Unassigned&table=x_153465_discovert_route_task_instance&filter=stateIN-5%5E'+primary_assigneeFilter+'%5ENQstateIN11%5Eassigned_toISNOTEMPTY%5E'+primary_assigneeFilter + '&label='+label, items: []};
+
+t.items.push(link); // put 'View all requests' last]]></record_script>
+        <sc_cat_item/>
+        <sc_category/>
+        <short_description/>
+        <sp_page/>
+        <sp_rectangle_menu display_value="DiscoverTasker Banner Notification">2319a93cdb915340bb8ee536ca9619cd</sp_rectangle_menu>
+        <sp_rectangle_menu_item/>
+        <sys_class_name>sp_rectangle_menu_item</sys_class_name>
+        <sys_created_by>KTorres</sys_created_by>
+        <sys_created_on>2018-04-03 18:02:22</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>d13a21bcdb915340bb8ee536ca96190e</sys_id>
+        <sys_mod_count>101</sys_mod_count>
+        <sys_name>Awaiting Assignment</sys_name>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sp_rectangle_menu_item_d13a21bcdb915340bb8ee536ca96190e</sys_update_name>
+        <sys_updated_by>aalzyoud</sys_updated_by>
+        <sys_updated_on>2019-03-01 17:53:50</sys_updated_on>
+        <table/>
+        <type>scripted</type>
+        <url/>
+        <url_target/>
+    </sp_rectangle_menu_item>
+</record_update>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="tt_inbound_outbound" table="x_153465_discovert_route_task_instance" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>tt_inbound_outbound</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Inbound</label>
+            <language>en</language>
+            <name>x_153465_discovert_route_task_instance</name>
+            <sequence>100</sequence>
+            <sys_created_by>tnguyen</sys_created_by>
+            <sys_created_on>2018-10-11 20:49:13</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>dc0146d6dbc5a788c18c59b2ca96190d</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>tnguyen</sys_updated_by>
+            <sys_updated_on>2018-10-11 20:52:29</sys_updated_on>
+            <value>Inbound</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>tt_inbound_outbound</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Outbound</label>
+            <language>en</language>
+            <name>x_153465_discovert_route_task_instance</name>
+            <sequence>200</sequence>
+            <sys_created_by>tnguyen</sys_created_by>
+            <sys_created_on>2018-10-11 20:49:30</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>d92102d6dbc5a788c18c59b2ca961963</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>tnguyen</sys_updated_by>
+            <sys_updated_on>2018-10-11 20:52:38</sys_updated_on>
+            <value>Outbound</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>tt_inbound_outbound</element>
+            <name>x_153465_discovert_route_task_instance</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>tnguyen</sys_created_by>
+            <sys_created_on>2018-10-11 20:49:13</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>19110296dbc5a788c18c59b2ca9619c8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>tt_inbound_outbound</sys_name>
+            <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+            <sys_update_name>sys_choice_x_153465_discovert_route_task_instance_tt_inbound_outbound</sys_update_name>
+            <sys_updated_by>tnguyen</sys_updated_by>
+            <sys_updated_on>2018-10-11 20:49:13</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

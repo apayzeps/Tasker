@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="x_153465_discovert_war_sar_history" version="2" view="RPT545f00fddbf75b00bb8ee536ca961970">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_created_on</element>
+            <list_id display_value="x_153465_discovert_war_sar_history" element="NULL" name="x_153465_discovert_war_sar_history" parent="NULL" relationship="NULL" sys_domain="global" view="505f00fddbf75b00bb8ee536ca961973">3c858a31db3f5b00bb8ee536ca9619dd</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2018-08-09 04:33:08</sys_created_on>
+            <sys_id>f0858a31db3f5b00bb8ee536ca9619de</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2018-08-09 04:33:08</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>current_assignee</element>
+            <list_id display_value="x_153465_discovert_war_sar_history" element="NULL" name="x_153465_discovert_war_sar_history" parent="NULL" relationship="NULL" sys_domain="global" view="505f00fddbf75b00bb8ee536ca961973">3c858a31db3f5b00bb8ee536ca9619dd</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2018-08-09 04:33:08</sys_created_on>
+            <sys_id>74858a31db3f5b00bb8ee536ca9619de</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2018-08-09 04:33:08</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>current_assignee_ou</element>
+            <list_id display_value="x_153465_discovert_war_sar_history" element="NULL" name="x_153465_discovert_war_sar_history" parent="NULL" relationship="NULL" sys_domain="global" view="505f00fddbf75b00bb8ee536ca961973">3c858a31db3f5b00bb8ee536ca9619dd</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2018-08-09 04:33:08</sys_created_on>
+            <sys_id>f4858a31db3f5b00bb8ee536ca9619de</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2018-08-09 04:33:08</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>activity_id.number</element>
+            <list_id display_value="x_153465_discovert_war_sar_history" element="NULL" name="x_153465_discovert_war_sar_history" parent="NULL" relationship="NULL" sys_domain="global" view="505f00fddbf75b00bb8ee536ca961973">3c858a31db3f5b00bb8ee536ca9619dd</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2018-08-09 04:33:08</sys_created_on>
+            <sys_id>30850e31db3f5b00bb8ee536ca961979</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2018-08-09 04:33:08</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>activity_id.slug_line</element>
+            <list_id display_value="x_153465_discovert_war_sar_history" element="NULL" name="x_153465_discovert_war_sar_history" parent="NULL" relationship="NULL" sys_domain="global" view="505f00fddbf75b00bb8ee536ca961973">3c858a31db3f5b00bb8ee536ca9619dd</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2018-08-09 04:33:08</sys_created_on>
+            <sys_id>b0850e31db3f5b00bb8ee536ca961979</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2018-08-09 04:33:08</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>activity_id.classification</element>
+            <list_id display_value="x_153465_discovert_war_sar_history" element="NULL" name="x_153465_discovert_war_sar_history" parent="NULL" relationship="NULL" sys_domain="global" view="505f00fddbf75b00bb8ee536ca961973">3c858a31db3f5b00bb8ee536ca9619dd</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2018-08-09 04:33:08</sys_created_on>
+            <sys_id>34850e31db3f5b00bb8ee536ca961979</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2018-08-09 04:33:08</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>activity_id.priority</element>
+            <list_id display_value="x_153465_discovert_war_sar_history" element="NULL" name="x_153465_discovert_war_sar_history" parent="NULL" relationship="NULL" sys_domain="global" view="505f00fddbf75b00bb8ee536ca961973">3c858a31db3f5b00bb8ee536ca9619dd</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>6</position>
+            <sum>false</sum>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2018-08-09 04:33:08</sys_created_on>
+            <sys_id>b4850e31db3f5b00bb8ee536ca961979</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2018-08-09 04:33:08</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>activity_id.status</element>
+            <list_id display_value="x_153465_discovert_war_sar_history" element="NULL" name="x_153465_discovert_war_sar_history" parent="NULL" relationship="NULL" sys_domain="global" view="505f00fddbf75b00bb8ee536ca961973">3c858a31db3f5b00bb8ee536ca9619dd</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>7</position>
+            <sum>false</sum>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2018-08-09 04:33:08</sys_created_on>
+            <sys_id>38850e31db3f5b00bb8ee536ca961979</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2018-08-09 04:33:08</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>previous_assignee</element>
+            <list_id display_value="x_153465_discovert_war_sar_history" element="NULL" name="x_153465_discovert_war_sar_history" parent="NULL" relationship="NULL" sys_domain="global" view="505f00fddbf75b00bb8ee536ca961973">3c858a31db3f5b00bb8ee536ca9619dd</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>8</position>
+            <sum>false</sum>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2018-08-09 04:33:08</sys_created_on>
+            <sys_id>b8850e31db3f5b00bb8ee536ca961979</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2018-08-09 04:33:08</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>previous_assignee_ou</element>
+            <list_id display_value="x_153465_discovert_war_sar_history" element="NULL" name="x_153465_discovert_war_sar_history" parent="NULL" relationship="NULL" sys_domain="global" view="505f00fddbf75b00bb8ee536ca961973">3c858a31db3f5b00bb8ee536ca9619dd</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>9</position>
+            <sum>false</sum>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2018-08-09 04:33:08</sys_created_on>
+            <sys_id>3c850e31db3f5b00bb8ee536ca961979</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2018-08-09 04:33:08</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>x_153465_discovert_war_sar_history</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2018-08-09 04:33:08</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>3c858a31db3f5b00bb8ee536ca9619dd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_153465_discovert_war_sar_history</sys_name>
+            <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+            <sys_update_name>sys_ui_list_x_153465_discovert_war_sar_history_RPT545f00fddbf75b00bb8ee536ca961970</sys_update_name>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2018-08-09 04:33:08</sys_updated_on>
+            <sys_user/>
+            <view display_value="Rpt545f00fddbf75b00bb8ee536ca961970" name="RPT545f00fddbf75b00bb8ee536ca961970">505f00fddbf75b00bb8ee536ca961973</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

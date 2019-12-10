@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function ($scope, $rootScope,spAriaFocusManager, $http, amb,$timeout, spUtil, $location, $window, nowAttachmentHandler, $log, spAriaUtil, spModal, $uibModal, spNavStateManager) {
+	/* widget controller */
+	var c = this;
+	
+	c.runProcessTemplate = function(){
+		c.data.processInstanceName = c.instanceNotation;
+		c.data.process_template_objective_user = c.objective;
+		c.server.update();
+		$('#runTemplateButton').prop( "disabled", true );
+		$(".showAlert").hide().show('medium');
+		$( "form[name='processInstanceForm']" ).css("display","none");
+	};
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.showAlert{display: none;}
+.astrik:before{
+   color: red;
+   content: "*";
+   position: absolute;
+   margin-left: -1%;
+}
+
+textarea{
+  max-width:100%;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>discovertasker-widget-modal-prompt</id>
+        <internal>false</internal>
+        <link/>
+        <name>discovertasker-widget-modal-prompt</name>
+        <option_schema/>
+        <public>false</public>
+        <roles>x_153465_discovert.tasker_user</roles>
+        <script><![CDATA[(function($sp, input, data, options, gs) {
+	/* populate the 'data' object */
+	var param1;
+	data.process_template_sys_id = '';
+	data.process_template_objective = '';
+	data.processInstanceName = '';
+	data.process_template_objective_user = '';
+	
+	if(input){
+		data.process_template_sys_id =input.process_template_sys_id;
+		data.process_template_objective =input.process_template_objective;
+		
+		if((input.processInstanceName != '') && (input.processInstanceName != undefined)){			
+			if((input.process_template_objective_user != '') && (input.process_template_objective_user != undefined)){
+				param1= input.processInstanceName + " npaa$ " + input.process_template_objective_user;
+			}else{
+				param1 = input.processInstanceName + " npaa$ " + input.process_template_objective;
+			}
+			
+			data.test = new RunProcessTemplate().runProcessTemplate(data.process_template_sys_id, param1);
+		}
+	}
+})($sp, input, data, options, gs);]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>aalzyoud</sys_created_by>
+        <sys_created_on>2019-03-13 14:58:39</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>391ce42fdb843380c18c59b2ca96196a</sys_id>
+        <sys_mod_count>139</sys_mod_count>
+        <sys_name>discovertasker-widget-modal-prompt</sys_name>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sp_widget_391ce42fdb843380c18c59b2ca96196a</sys_update_name>
+        <sys_updated_by>aalzyoud</sys_updated_by>
+        <sys_updated_on>2019-03-20 18:59:18</sys_updated_on>
+        <template><![CDATA[<div>
+  <div class="alert alert-success alert-dismissable showAlert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Success! Tasker is running the process template.
+  </div>
+<form name="processInstanceForm">
+  <div class="form-group">
+    <label for="objective">Objective</label>
+    <textarea type="text" class="form-control" id="objective" ng-model="c.objective" aria-describedby="objectiveHelp" placeholder="{{c.data.process_template_objective}}" rows="4"></textarea>
+    <small id="objectiveHelp" class="form-text text-muted">Enter an instance Objective, or leave as is to continue with the current process template objective.</small>
+  </div>
+  <div class="form-group">
+    <label class="astrik" for="instanceNotation">Instance Notation</label>
+    <textarea type="text" class="form-control required" ng-model="c.instanceNotation" id="instanceNotation" placeholder="" ng-required="true" rows="4"></textarea>
+    <small id="objectiveHelp" class="form-text text-muted">Enter a process instance notation to identify the purpose of this process instance. </small>
+  </div> 
+    <button type="submit" id="runTemplateButton" ng-click="processInstanceForm.$valid && c.runProcessTemplate()" class="btn btn-success">Run Process Template</button>
+</form>
+</div>]]></template>
+    </sp_widget>
+</record_update>

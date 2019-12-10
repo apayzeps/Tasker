@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="recurrance_frequency_choice_month" table="x_153465_discovert_tasker_schedule" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>recurrance_frequency_choice_month</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Day</label>
+            <language>en</language>
+            <name>x_153465_discovert_tasker_schedule</name>
+            <sequence>1</sequence>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2018-05-22 19:56:49</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>cd33ae68db965340bb8ee536ca9619d5</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2018-05-22 19:57:08</sys_updated_on>
+            <value>day</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>recurrance_frequency_choice_month</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>The</label>
+            <language>en</language>
+            <name>x_153465_discovert_tasker_schedule</name>
+            <sequence>2</sequence>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2018-05-22 19:57:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4253aa68db965340bb8ee536ca96199c</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2018-05-22 19:58:01</sys_updated_on>
+            <value>the_number_week</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>recurrance_frequency_choice_month</element>
+            <name>x_153465_discovert_tasker_schedule</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2018-05-22 19:56:49</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>30536e24db965340bb8ee536ca9619c8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>recurrance_frequency_choice_month</sys_name>
+            <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+            <sys_update_name>sys_choice_x_153465_discovert_tasker_schedule_recurrance_frequency_choice_month</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2018-05-22 19:56:49</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

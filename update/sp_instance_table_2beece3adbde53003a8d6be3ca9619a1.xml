@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_table">
+    <sp_instance_table action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>primary</color>
+        <css/>
+        <display_field>calchaschildren</display_field>
+        <field_list/>
+        <filter table="x_153465_discovert_route_task_instance">closed_atONThis week@javascript:gs.beginningOfThisWeek()@javascript:gs.endOfThisWeek()^stateIN7,4,3^primary_assigneeSTARTSWITHJ1^EQ&amp;o=closed_at&amp;d=desc&amp;view=completed&amp;target_page_id=<item endquery="false" field="closed_at" goto="false" newquery="false" operator="ON" or="false" value="This week@javascript:gs.beginningOfThisWeek()@javascript:gs.endOfThisWeek()"/>
+            <item endquery="false" field="state" goto="false" newquery="false" operator="IN" or="false" value="7,4,3"/>
+            <item endquery="false" field="primary_assignee" goto="false" newquery="false" operator="STARTSWITH" or="false" value="J1"/>
+        </filter>
+        <glyph>check</glyph>
+        <id/>
+        <maximum_entries>5</maximum_entries>
+        <order>0</order>
+        <order_by/>
+        <order_direction>asc</order_direction>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="6">8368d2064f2bc300303dc3818110c7c6</sp_column>
+        <sp_page display_value="discovertasker_detailsdrilldown">f508b4444ff78300303dc3818110c7a8</sp_page>
+        <sp_widget display_value="Count">1d8ad230ff223100ba13ffffffffffb9</sp_widget>
+        <sys_class_name>sp_instance_table</sys_class_name>
+        <sys_created_by>KTorres</sys_created_by>
+        <sys_created_on>2018-05-29 18:14:02</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>2beece3adbde53003a8d6be3ca9619a1</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>Completed this week</sys_name>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sp_instance_table_2beece3adbde53003a8d6be3ca9619a1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-05-30 16:31:08</sys_updated_on>
+        <table>x_153465_discovert_route_task_instance</table>
+        <title>Completed this week</title>
+        <url/>
+        <widget_parameters/>
+    </sp_instance_table>
+</record_update>

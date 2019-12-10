@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="Mission Area" section_id="56d14440dbf0b300c18c59b2ca961992" sys_domain="global" table="x_153465_discovert_route_task_instance" version="3" view="Other_Task_Types">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>requires_mission_area</element>
+            <position>0</position>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2019-04-08 21:42:30</sys_created_on>
+            <sys_id>62d1c440dbf0b300c18c59b2ca9619d3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Mission Area" display_value="Mission Area" name="x_153465_discovert_route_task_instance" sys_domain="global" view="4d9f0143dbbc6704bb8ee536ca961936">56d14440dbf0b300c18c59b2ca961992</sys_ui_section>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2019-04-08 21:42:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>1</position>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2019-04-08 21:42:30</sys_created_on>
+            <sys_id>7ad1c440dbf0b300c18c59b2ca9619d3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Mission Area" display_value="Mission Area" name="x_153465_discovert_route_task_instance" sys_domain="global" view="4d9f0143dbbc6704bb8ee536ca961936">56d14440dbf0b300c18c59b2ca961992</sys_ui_section>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2019-04-08 21:42:30</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>2</position>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2019-04-08 21:42:30</sys_created_on>
+            <sys_id>fad1c440dbf0b300c18c59b2ca9619d3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Mission Area" display_value="Mission Area" name="x_153465_discovert_route_task_instance" sys_domain="global" view="4d9f0143dbbc6704bb8ee536ca961936">56d14440dbf0b300c18c59b2ca961992</sys_ui_section>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2019-04-08 21:42:30</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>3</position>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2019-04-08 21:42:30</sys_created_on>
+            <sys_id>7ed1c440dbf0b300c18c59b2ca9619d3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Mission Area" display_value="Mission Area" name="x_153465_discovert_route_task_instance" sys_domain="global" view="4d9f0143dbbc6704bb8ee536ca961936">56d14440dbf0b300c18c59b2ca961992</sys_ui_section>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2019-04-08 21:42:30</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>point_of_contact</element>
+            <position>4</position>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2019-04-08 21:42:30</sys_created_on>
+            <sys_id>fed1c440dbf0b300c18c59b2ca9619d3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Mission Area" display_value="Mission Area" name="x_153465_discovert_route_task_instance" sys_domain="global" view="4d9f0143dbbc6704bb8ee536ca961936">56d14440dbf0b300c18c59b2ca961992</sys_ui_section>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2019-04-08 21:42:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>background</element>
+            <position>5</position>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2019-04-08 21:42:30</sys_created_on>
+            <sys_id>72d1c440dbf0b300c18c59b2ca9619d4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Mission Area" display_value="Mission Area" name="x_153465_discovert_route_task_instance" sys_domain="global" view="4d9f0143dbbc6704bb8ee536ca961936">56d14440dbf0b300c18c59b2ca961992</sys_ui_section>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2019-04-08 21:42:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>guidance</element>
+            <position>6</position>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2019-04-08 21:42:30</sys_created_on>
+            <sys_id>f2d1c440dbf0b300c18c59b2ca9619d4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Mission Area" display_value="Mission Area" name="x_153465_discovert_route_task_instance" sys_domain="global" view="4d9f0143dbbc6704bb8ee536ca961936">56d14440dbf0b300c18c59b2ca961992</sys_ui_section>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2019-04-08 21:42:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>7</position>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2019-04-08 21:42:30</sys_created_on>
+            <sys_id>76d1c440dbf0b300c18c59b2ca9619d4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Mission Area" display_value="Mission Area" name="x_153465_discovert_route_task_instance" sys_domain="global" view="4d9f0143dbbc6704bb8ee536ca961936">56d14440dbf0b300c18c59b2ca961992</sys_ui_section>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2019-04-08 21:42:30</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>reference</element>
+            <position>8</position>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2019-04-08 21:42:30</sys_created_on>
+            <sys_id>f6d1c440dbf0b300c18c59b2ca9619d4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Mission Area" display_value="Mission Area" name="x_153465_discovert_route_task_instance" sys_domain="global" view="4d9f0143dbbc6704bb8ee536ca961936">56d14440dbf0b300c18c59b2ca961992</sys_ui_section>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2019-04-08 21:42:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>action</element>
+            <position>9</position>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2019-04-08 21:42:30</sys_created_on>
+            <sys_id>7ad1c440dbf0b300c18c59b2ca9619d4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Mission Area" display_value="Mission Area" name="x_153465_discovert_route_task_instance" sys_domain="global" view="4d9f0143dbbc6704bb8ee536ca961936">56d14440dbf0b300c18c59b2ca961992</sys_ui_section>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2019-04-08 21:42:30</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Mission Area</caption>
+            <header>false</header>
+            <name>x_153465_discovert_route_task_instance</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>KTorres</sys_created_by>
+            <sys_created_on>2019-04-08 21:42:29</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>56d14440dbf0b300c18c59b2ca961992</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Mission Area</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+            <sys_update_name>sys_ui_section_56d14440dbf0b300c18c59b2ca961992</sys_update_name>
+            <sys_updated_by>KTorres</sys_updated_by>
+            <sys_updated_on>2019-04-08 21:42:29</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Other Task Types" name="Other_Task_Types">4d9f0143dbbc6704bb8ee536ca961936</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

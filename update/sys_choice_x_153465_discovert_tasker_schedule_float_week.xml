@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="float_week" table="x_153465_discovert_tasker_schedule" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>float_week</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label/>
+            <language>en</language>
+            <name>x_153465_discovert_tasker_schedule</name>
+            <sequence/>
+            <sys_created_by>rjoy</sys_created_by>
+            <sys_created_on>2018-05-23 13:44:46</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ceb712f4db1e13403a8d6be3ca96197b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>rjoy</sys_updated_by>
+            <sys_updated_on>2018-05-23 13:44:46</sys_updated_on>
+            <value/>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>float_week</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>1st</label>
+            <language>en</language>
+            <name>x_153465_discovert_tasker_schedule</name>
+            <sequence>1</sequence>
+            <sys_created_by>rjoy</sys_created_by>
+            <sys_created_on>2018-05-23 13:43:07</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7d475af4db1e13403a8d6be3ca961931</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>rjoy</sys_updated_by>
+            <sys_updated_on>2018-05-23 13:43:57</sys_updated_on>
+            <value>1</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>float_week</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>2nd</label>
+            <language>en</language>
+            <name>x_153465_discovert_tasker_schedule</name>
+            <sequence>2</sequence>
+            <sys_created_by>rjoy</sys_created_by>
+            <sys_created_on>2018-05-23 13:43:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ac671af4db1e13403a8d6be3ca961996</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_updated_by>rjoy</sys_updated_by>
+            <sys_updated_on>2018-05-23 13:44:07</sys_updated_on>
+            <value>2</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>float_week</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>3rd</label>
+            <language>en</language>
+            <name>x_153465_discovert_tasker_schedule</name>
+            <sequence>3</sequence>
+            <sys_created_by>rjoy</sys_created_by>
+            <sys_created_on>2018-05-23 13:44:06</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>3097daf4db1e13403a8d6be3ca961938</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_updated_by>rjoy</sys_updated_by>
+            <sys_updated_on>2018-05-23 13:44:18</sys_updated_on>
+            <value>3</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>float_week</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>4th</label>
+            <language>en</language>
+            <name>x_153465_discovert_tasker_schedule</name>
+            <sequence>4</sequence>
+            <sys_created_by>rjoy</sys_created_by>
+            <sys_created_on>2018-05-23 13:44:19</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b697d6f4db1e13403a8d6be3ca9619f5</sys_id>
+            <sys_mod_count>4</sys_mod_count>
+            <sys_updated_by>rjoy</sys_updated_by>
+            <sys_updated_on>2018-05-23 13:44:34</sys_updated_on>
+            <value>4</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>float_week</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Last</label>
+            <language>en</language>
+            <name>x_153465_discovert_tasker_schedule</name>
+            <sequence>5</sequence>
+            <sys_created_by>rjoy</sys_created_by>
+            <sys_created_on>2018-05-23 13:44:35</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>0ea75238db1e13403a8d6be3ca9619d6</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_updated_by>rjoy</sys_updated_by>
+            <sys_updated_on>2018-05-23 13:44:48</sys_updated_on>
+            <value>last</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>float_week</element>
+            <name>x_153465_discovert_tasker_schedule</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>rjoy</sys_created_by>
+            <sys_created_on>2018-05-23 13:43:07</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>e46756f4db1e13403a8d6be3ca9619b5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>float_week</sys_name>
+            <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+            <sys_update_name>sys_choice_x_153465_discovert_tasker_schedule_float_week</sys_update_name>
+            <sys_updated_by>rjoy</sys_updated_by>
+            <sys_updated_on>2018-05-23 13:43:07</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

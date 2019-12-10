@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>test_email_script_ayman</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(current, template, email, email_action, event) {
+ 	var aa = new GlideRecord('x_153465_discovert_route_task_instance');
+	
+	var currentUser = gs.getUser().getID(); 
+
+	var things = [];
+	aa.addQuery('status','Critical');	
+
+	aa.query();
+	template.print('Tasks in Critical Status');
+	while(aa.next()){
+		 template.print("Task Name: " + aa.task_name + "<br />");
+	}
+	
+
+	
+	
+// 	if(current.assigned_to.getDisplayValue() == 'Ayman Alzyoud'){
+// 		email.addAddress("cc", 'zyoudi91@gmail.com');
+// 		template.print(current.assigned_to.getDisplayValue() + " is the assigned to member");
+
+// 	}else{
+// 			template.print(current.assigned_to.getDisplayValue() + ": assigned user is not Ayman Alzyoud");
+
+// 	}
+	
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>aalzyoud</sys_created_by>
+        <sys_created_on>2019-02-19 16:43:07</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>637e27d0dbf3ab00c18c59b2ca961997</sys_id>
+        <sys_mod_count>21</sys_mod_count>
+        <sys_name>test_email_script_ayman</sys_name>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sys_script_email_637e27d0dbf3ab00c18c59b2ca961997</sys_update_name>
+        <sys_updated_by>aalzyoud</sys_updated_by>
+        <sys_updated_on>2019-02-25 19:12:06</sys_updated_on>
+    </sys_script_email>
+</record_update>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_153465_discovert.dynamicMemberFilter</api_name>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>dynamicMemberFilter</name>
+        <script><![CDATA[var dynamicMemberFilter = Class.create();
+dynamicMemberFilter.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	
+	
+	getOUMembers: function() {
+		// RAJ TODO - you are here
+		// this method needs to call the method to see if the user is a TA.
+		// if yes, return everything below.
+		
+		var UserPermissions  = new UserInfoScripts();
+		if(UserPermissions.IsUserTaskingAuthority(current.primary_assignee,gs.getUserID())){
+			
+			var ouMemArr = ' ';
+			var grMem = new GlideRecord('x_153465_discovert_discover_office_members');
+			grMem.addQuery('discover_office_hierarchy', current.primary_assignee);
+			//Only return members in the primary assignee office
+			grMem.query();
+			
+			while(grMem.next()){
+				
+				
+				//KTORRES: STRY0014160
+				if ( current.assignment_group != '') {
+					
+					if  (UserPermissions.checkMemberinInGroup(grMem.office_member.toString(),current.assignment_group)) {
+						if ( ouMemArr == ' ' ){
+							//ouMemArr += ( grMem.sys_id.toString());
+							ouMemArr += ( grMem.office_member.toString());
+						}
+						else {
+							//ouMemArr += (',' + grMem.sys_id.toString());
+							ouMemArr += (',' + grMem.office_member.toString());
+						}
+					}
+				} else {
+					if (ouMemArr == ' '){
+						//ouMemArr += ( grMem.sys_id.toString());
+						ouMemArr += ( grMem.office_member.toString());
+					}
+					else {
+						//ouMemArr += (',' + grMem.sys_id.toString());
+						ouMemArr += (',' + grMem.office_member.toString());
+					}
+				}
+			
+			}
+		
+		return 'sys_id IN' + ouMemArr +'';
+	}
+	// if user is not a tasking authority check if the user is in the OU.
+	// if yes, then return this user only as they can assign the tasker to themselves
+	else{
+		if(UserPermissions.IsUserInOU(current.primary_assignee,gs.getUserID())){
+			
+			gs.debug('Tasker OU Members - Dynamic Member Filter, IS IN OU');
+			return 'sys_id IN' + gs.getUserID() +'';
+			
+		}
+		// if user not Tasking Authority and user not in OU return no results as the user can't assign taskers.
+		else{
+			gs.debug('Tasker OU Members - Dynamic Member Filter, SHOULD BE EMPTY');
+			return '';
+		}
+	}
+},
+
+getOfficePicker : function()
+{
+	var UserPermissions  = new UserInfoScripts();
+	//if(UserPermissions.IsUserTaskingAuthority(current.primary_assignee,gs.getUserID())){
+		
+		var currentPrimmaryAssignee = current.primary_assignee;//'5ecc47ed4fca0300303dc3818110c7af';// J1
+		var ouOfficePickerArr = '';
+		var ouDownOfficePickerArr = '';
+		var grParentOffice = new GlideRecord('x_153465_discovert_discover_office_hierarchy');
+		grParentOffice.get(currentPrimmaryAssignee);
+		
+		//KTORRES: GET SAME LEVEL OFFICES, BASED ON THE SAME PARENT OFFICE
+		ouOfficePickerArr = this.getOfficePickerBasedonParent(grParentOffice.parent);
+		
+		//KTORRES: GET THEIR OWN CHAIN OFFICES
+		ouDownOfficePickerArr = this.getOfficePickerBasedonParent(currentPrimmaryAssignee);
+		
+		if (ouDownOfficePickerArr != '')
+			ouOfficePickerArr += (',' +  ouDownOfficePickerArr);
+		
+		return 'sys_id IN' + ouOfficePickerArr+'';
+		
+		//}
+	},
+	
+	getOfficePickerBasedonParent : function(parent)
+	{
+		var ouChildOfficePickerArr = ' ';
+		//KTORRES: GET SAME LEVEL OFFICES, BASED ON THE SAME PARENT OFFICE
+		var grOffice = new GlideRecord('x_153465_discovert_discover_office_hierarchy');
+		grOffice.addQuery('parent', parent);
+		grOffice.orderBy('office_abbreviation');
+		grOffice.query();
+		
+		while(grOffice.next()){
+			if (ouChildOfficePickerArr == ' '){
+				ouChildOfficePickerArr += ( grOffice.sys_id);
+			}
+			else {
+				ouChildOfficePickerArr += (',' + grOffice.sys_id);
+			}
+		}
+		
+		return ouChildOfficePickerArr;
+		
+	},
+	type: 'dynamicMemberFilter'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-01-17 04:32:11</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>6ded97044f7f8300303dc3818110c7d4</sys_id>
+        <sys_mod_count>84</sys_mod_count>
+        <sys_name>dynamicMemberFilter</sys_name>
+        <sys_package display_value="Tasker" source="x_153465_discovert">c6b1162d4fc10300303dc3818110c7b1</sys_package>
+        <sys_policy>protected</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Tasker">c6b1162d4fc10300303dc3818110c7b1</sys_scope>
+        <sys_update_name>sys_script_include_6ded97044f7f8300303dc3818110c7d4</sys_update_name>
+        <sys_updated_by>KTorres</sys_updated_by>
+        <sys_updated_on>2019-01-17 02:29:01</sys_updated_on>
+    </sys_script_include>
+</record_update>
