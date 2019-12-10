@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_153465_discovert_discover_office_hierarchy">
+    <x_153465_discovert_discover_office_hierarchy action="INSERT_OR_UPDATE">
+        <level_order>2</level_order>
+        <office_abbreviation>J39</office_abbreviation>
+        <office_level/>
+        <office_name>J39 - information Operations Div</office_name>
+        <parent display_value="J3">1e5bd7e54f0e0300303dc3818110c7cd</parent>
+        <sys_created_by>bkeener</sys_created_by>
+        <sys_created_on>2017-10-26 20:19:19</sys_created_on>
+        <sys_id>bd9d9be54f0e0300303dc3818110c704</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>bkeener</sys_updated_by>
+        <sys_updated_on>2017-10-30 19:50:29</sys_updated_on>
+    </x_153465_discovert_discover_office_hierarchy>
+</record_update>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_153465_discovert_tasker_notification_profile">
+    <x_153465_discovert_tasker_notification_profile action="INSERT_OR_UPDATE">
+        <assigned_to_me>true</assigned_to_me>
+        <critical>true</critical>
+        <due_date_change>true</due_date_change>
+        <on_children>true</on_children>
+        <on_state>bbd2a5e44f481300303dc3818110c79f,972321284f481300303dc3818110c7bf,c453e1e44f481300303dc3818110c754,30f1a1e44f481300303dc3818110c720,1b21e5a44f481300303dc3818110c795,5c5261a44f481300303dc3818110c731</on_state>
+        <org_unit/>
+        <profile_level>global</profile_level>
+        <suspense_date_change>true</suspense_date_change>
+        <sys_created_by>bkeener</sys_created_by>
+        <sys_created_on>2018-03-12 15:15:36</sys_created_on>
+        <sys_id>ebf93ba1dbb01700bb8ee536ca9619e6</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>bkeener</sys_updated_by>
+        <sys_updated_on>2018-03-12 15:21:34</sys_updated_on>
+        <user/>
+        <warning_hours>true</warning_hours>
+    </x_153465_discovert_tasker_notification_profile>
+</record_update>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_153465_discovert_discover_route">
+    <x_153465_discovert_discover_route action="INSERT_OR_UPDATE">
+        <category/>
+        <classification>unclass</classification>
+        <demo_data>true</demo_data>
+        <detailed_instructions>Commander Approval</detailed_instructions>
+        <estimated_duration>1970-03-02 00:00:00</estimated_duration>
+        <primary_assignee/>
+        <primary_office display_value="J00">fcaa5fa54f0e0300303dc3818110c794</primary_office>
+        <response/>
+        <route_name>Commander Approval</route_name>
+        <route_order>3</route_order>
+        <routingtemplate display_value="Bronze Star Award (US Army)">591dd7d84fe20300303dc3818110c775</routingtemplate>
+        <short_description>Commander Approval</short_description>
+        <sub_category/>
+        <sys_created_by>ehowell</sys_created_by>
+        <sys_created_on>2017-11-16 19:48:54</sys_created_on>
+        <sys_id>780067dc4fe20300303dc3818110c753</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>bkeener</sys_updated_by>
+        <sys_updated_on>2017-12-12 18:07:31</sys_updated_on>
+    </x_153465_discovert_discover_route>
+</record_update>

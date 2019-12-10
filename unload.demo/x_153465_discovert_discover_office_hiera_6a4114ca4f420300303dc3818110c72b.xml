@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_153465_discovert_discover_office_hierarchy">
+    <x_153465_discovert_discover_office_hierarchy action="INSERT_OR_UPDATE">
+        <includeintaskingauthority>false</includeintaskingauthority>
+        <level_order>2</level_order>
+        <office_abbreviation>J1-T</office_abbreviation>
+        <office_level/>
+        <office_name>J1-T - HR Theater Plans &amp; Programs Div</office_name>
+        <parent display_value="J1">5ecc47ed4fca0300303dc3818110c7af</parent>
+        <sys_created_by>bkeener</sys_created_by>
+        <sys_created_on>2017-10-27 18:43:21</sys_created_on>
+        <sys_id>6a4114ca4f420300303dc3818110c72b</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-11-23 05:31:09</sys_updated_on>
+    </x_153465_discovert_discover_office_hierarchy>
+</record_update>

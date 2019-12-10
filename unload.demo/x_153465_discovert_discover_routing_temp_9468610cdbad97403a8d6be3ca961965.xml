@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_153465_discovert_discover_routing_template">
+    <x_153465_discovert_discover_routing_template action="INSERT_OR_UPDATE">
+        <category/>
+        <classification>unclass</classification>
+        <demo_data>false</demo_data>
+        <description>pkease erase</description>
+        <expected_duration>1970-01-06 00:00:00</expected_duration>
+        <primary_assignee display_value="J1-R">207158424f820300303dc3818110c7f0</primary_assignee>
+        <primary_office display_value="J00">fcaa5fa54f0e0300303dc3818110c794</primary_office>
+        <process_level>my_process</process_level>
+        <process_ou display_value="J1-R">207158424f820300303dc3818110c7f0</process_ou>
+        <process_owner display_value="Evan Howell">2dd4acc5db4d5b003a8d6be3ca9619b2</process_owner>
+        <response/>
+        <short_description>test</short_description>
+        <sub_category/>
+        <sys_class_name>x_153465_discovert_discover_routing_template</sys_class_name>
+        <sys_created_by>ehowell</sys_created_by>
+        <sys_created_on>2018-04-13 19:37:35</sys_created_on>
+        <sys_id>9468610cdbad97403a8d6be3ca961965</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>ehowell</sys_updated_by>
+        <sys_updated_on>2018-04-13 19:37:35</sys_updated_on>
+        <tasker_type display_value="Standard Tasker">4a55d9b4db3c53003a8d6be3ca96194c</tasker_type>
+        <tasker_type_actions/>
+        <tasking_authority display_value="J00">cf6e19e2dbb057003a8d6be3ca961986</tasking_authority>
+        <template_name>test</template_name>
+        <warning_hours>8</warning_hours>
+    </x_153465_discovert_discover_routing_template>
+</record_update>

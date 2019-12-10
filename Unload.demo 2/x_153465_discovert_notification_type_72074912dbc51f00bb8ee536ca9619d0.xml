@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_153465_discovert_notification_type">
+    <x_153465_discovert_notification_type action="INSERT_OR_UPDATE">
+        <email_body>The due date for this task is within the warning hours and has not been closed yet.</email_body>
+        <long_description>Warning Notification</long_description>
+        <notify_type>warning</notify_type>
+        <short_description>Warning</short_description>
+        <subject>Warning Hours</subject>
+        <sys_created_by>bkeener</sys_created_by>
+        <sys_created_on>2018-03-26 20:26:00</sys_created_on>
+        <sys_id>72074912dbc51f00bb8ee536ca9619d0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>bkeener</sys_updated_by>
+        <sys_updated_on>2018-03-26 20:26:00</sys_updated_on>
+    </x_153465_discovert_notification_type>
+</record_update>

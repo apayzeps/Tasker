@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_153465_discovert_discover_office_hierarchy">
+    <x_153465_discovert_discover_office_hierarchy action="INSERT_OR_UPDATE">
+        <level_order>1</level_order>
+        <office_abbreviation>J00-R</office_abbreviation>
+        <office_level>2</office_level>
+        <office_name>J00-R - Spec Asst to the Commander</office_name>
+        <parent display_value="J00">fcaa5fa54f0e0300303dc3818110c794</parent>
+        <sys_created_by>bkeener</sys_created_by>
+        <sys_created_on>2017-10-27 20:38:56</sys_created_on>
+        <sys_id>dccbec0e4f820300303dc3818110c7db</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-11-22 23:57:17</sys_updated_on>
+    </x_153465_discovert_discover_office_hierarchy>
+</record_update>

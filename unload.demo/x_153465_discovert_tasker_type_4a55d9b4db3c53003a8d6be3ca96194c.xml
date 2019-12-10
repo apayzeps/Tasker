@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_153465_discovert_tasker_type">
+    <x_153465_discovert_tasker_type action="INSERT_OR_UPDATE">
+        <sys_created_by>rjoy</sys_created_by>
+        <sys_created_on>2018-03-09 19:20:35</sys_created_on>
+        <sys_id>4a55d9b4db3c53003a8d6be3ca96194c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>rjoy</sys_updated_by>
+        <sys_updated_on>2018-03-09 19:20:35</sys_updated_on>
+        <tasker_type>Standard Tasker</tasker_type>
+        <work_type>Work Item</work_type>
+    </x_153465_discovert_tasker_type>
+</record_update>

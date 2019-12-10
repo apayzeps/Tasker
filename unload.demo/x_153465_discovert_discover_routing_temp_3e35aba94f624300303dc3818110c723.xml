@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_153465_discovert_discover_routing_template">
+    <x_153465_discovert_discover_routing_template action="INSERT_OR_UPDATE">
+        <category display_value="Simple Task">f5f86cab4f36c300303dc3818110c79b</category>
+        <classification>unclass</classification>
+        <demo_data>true</demo_data>
+        <description>These tasks will be worked independently and submitted back to the commander through the CoS</description>
+        <expected_duration>1970-01-31 00:00:00</expected_duration>
+        <primary_assignee display_value="J00-R">dccbec0e4f820300303dc3818110c7db</primary_assignee>
+        <primary_office display_value="J00-R">dccbec0e4f820300303dc3818110c7db</primary_office>
+        <process_level>my_process</process_level>
+        <process_ou/>
+        <process_owner display_value="Robert Joy">70070c27db201b003a8d6be3ca96193c</process_owner>
+        <response/>
+        <short_description>Identical task sent to all subordinate offices for parallel work</short_description>
+        <sub_category display_value="Task to another office">11e2f4ef4f36c300303dc3818110c797</sub_category>
+        <sys_class_name>x_153465_discovert_discover_routing_template</sys_class_name>
+        <sys_created_by>ehowell</sys_created_by>
+        <sys_created_on>2017-11-20 17:27:37</sys_created_on>
+        <sys_id>3e35aba94f624300303dc3818110c723</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_updated_by>rjoy</sys_updated_by>
+        <sys_updated_on>2018-04-24 14:58:35</sys_updated_on>
+        <tasker_type display_value="Standard Tasker">4a55d9b4db3c53003a8d6be3ca96194c</tasker_type>
+        <tasker_type_actions/>
+        <tasking_authority display_value="J00-R">836e15a2dbb057003a8d6be3ca961968</tasking_authority>
+        <template_name>Same Task to All Offices</template_name>
+        <warning_hours/>
+    </x_153465_discovert_discover_routing_template>
+</record_update>

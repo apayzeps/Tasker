@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_153465_discovert_discover_office_hierarchy">
+    <x_153465_discovert_discover_office_hierarchy action="INSERT_OR_UPDATE">
+        <level_order>2</level_order>
+        <office_abbreviation>J45</office_abbreviation>
+        <office_level/>
+        <office_name>J45 - Logistics Support Div</office_name>
+        <parent display_value="J3">1e5bd7e54f0e0300303dc3818110c7cd</parent>
+        <sys_created_by>bkeener</sys_created_by>
+        <sys_created_on>2017-10-26 20:21:20</sys_created_on>
+        <sys_id>5d2e1fe54f0e0300303dc3818110c770</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>rjoy</sys_updated_by>
+        <sys_updated_on>2017-11-02 18:58:38</sys_updated_on>
+    </x_153465_discovert_discover_office_hierarchy>
+</record_update>

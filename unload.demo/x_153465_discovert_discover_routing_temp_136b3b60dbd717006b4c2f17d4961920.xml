@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_153465_discovert_discover_routing_template">
+    <x_153465_discovert_discover_routing_template action="INSERT_OR_UPDATE">
+        <demo_data>true</demo_data>
+        <description>Identical task sent to all subordinate offices for parallel work
+
+These tasks will be worked independently and submitted back to the commander through the CoS</description>
+        <original_tasker_saved_to_process display_value="Same Task to All Offices">f8a873e0db5f5b40bb8ee536ca9619f3</original_tasker_saved_to_process>
+        <parent_task_def display_value="Same Task to All Offices">9b6b3b60dbd717006b4c2f17d4961923</parent_task_def>
+        <process_level>my_process</process_level>
+        <process_ou/>
+        <process_owner display_value="Karina Torres">a80bc867db201b003a8d6be3ca9619d4</process_owner>
+        <short_description>Same Task to All Offices</short_description>
+        <sys_class_name>x_153465_discovert_discover_routing_template</sys_class_name>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2018-07-11 19:24:32</sys_created_on>
+        <sys_id>136b3b60dbd717006b4c2f17d4961920</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-07-12 14:59:12</sys_updated_on>
+        <template_name>Same Task to All Offices</template_name>
+    </x_153465_discovert_discover_routing_template>
+</record_update>

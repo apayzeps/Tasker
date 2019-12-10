@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_153465_discovert_notification_type">
+    <x_153465_discovert_notification_type action="INSERT_OR_UPDATE">
+        <email_body>This task is now in review.</email_body>
+        <long_description>Task is in review.</long_description>
+        <notify_type>review</notify_type>
+        <short_description>Review</short_description>
+        <subject>Task In Review</subject>
+        <sys_created_by>bkeener</sys_created_by>
+        <sys_created_on>2018-03-29 21:11:33</sys_created_on>
+        <sys_id>8d7ee45fdb059f00bb8ee536ca9619d4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>bkeener</sys_updated_by>
+        <sys_updated_on>2018-03-29 21:11:33</sys_updated_on>
+    </x_153465_discovert_notification_type>
+</record_update>

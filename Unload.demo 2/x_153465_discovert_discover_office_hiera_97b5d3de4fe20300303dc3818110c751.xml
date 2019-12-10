@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_153465_discovert_discover_office_hierarchy">
+    <x_153465_discovert_discover_office_hierarchy action="INSERT_OR_UPDATE">
+        <level_order>6</level_order>
+        <office_abbreviation>J03-SM</office_abbreviation>
+        <office_level>4</office_level>
+        <office_name>J03-SM Security Management</office_name>
+        <parent display_value="J03-SS">df6ad80a4f820300303dc3818110c73b</parent>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-11-23 00:11:34</sys_created_on>
+        <sys_id>97b5d3de4fe20300303dc3818110c751</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-11-23 00:11:34</sys_updated_on>
+    </x_153465_discovert_discover_office_hierarchy>
+</record_update>

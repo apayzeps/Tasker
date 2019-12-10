@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_153465_discovert_discover_office_hierarchy">
+    <x_153465_discovert_discover_office_hierarchy action="INSERT_OR_UPDATE">
+        <level_order>1</level_order>
+        <office_abbreviation>J1</office_abbreviation>
+        <office_name>J1 - Manpower and Personnel</office_name>
+        <parent display_value="J00">fcaa5fa54f0e0300303dc3818110c794</parent>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-10-26 19:05:43</sys_created_on>
+        <sys_id>5ecc47ed4fca0300303dc3818110c7af</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>bkeener</sys_updated_by>
+        <sys_updated_on>2017-11-01 14:27:38</sys_updated_on>
+    </x_153465_discovert_discover_office_hierarchy>
+</record_update>

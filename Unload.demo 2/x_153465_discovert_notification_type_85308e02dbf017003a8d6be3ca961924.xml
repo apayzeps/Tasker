@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_153465_discovert_notification_type">
+    <x_153465_discovert_notification_type action="INSERT_OR_UPDATE">
+        <email_body>The state of this task has changed.</email_body>
+        <long_description>State Change Notification</long_description>
+        <notify_type>state</notify_type>
+        <short_description>State Change</short_description>
+        <subject>State Change</subject>
+        <sys_created_by>bkeener</sys_created_by>
+        <sys_created_on>2018-03-13 19:40:46</sys_created_on>
+        <sys_id>85308e02dbf017003a8d6be3ca961924</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_updated_by>bkeener</sys_updated_by>
+        <sys_updated_on>2018-03-28 20:35:02</sys_updated_on>
+    </x_153465_discovert_notification_type>
+</record_update>

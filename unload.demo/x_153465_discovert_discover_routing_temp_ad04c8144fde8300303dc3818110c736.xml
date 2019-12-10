@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_153465_discovert_discover_routing_template">
+    <x_153465_discovert_discover_routing_template action="INSERT_OR_UPDATE">
+        <category display_value="Document Review">08d544d44fde8300303dc3818110c73e</category>
+        <classification>unclass</classification>
+        <demo_data>true</demo_data>
+        <description>Routing template to handle the process required by J2 to review documents</description>
+        <expected_duration>1970-01-31 00:00:00</expected_duration>
+        <primary_assignee display_value="J2">8d6d0bed4fca0300303dc3818110c79d</primary_assignee>
+        <primary_office display_value="J2">8d6d0bed4fca0300303dc3818110c79d</primary_office>
+        <process_level>global_process</process_level>
+        <process_ou/>
+        <process_owner display_value="Evan Howell">2dd4acc5db4d5b003a8d6be3ca9619b2</process_owner>
+        <response/>
+        <short_description>Routing template to handle the process required by J2 to review documents</short_description>
+        <sub_category display_value="J2 (Streamlined)">402c642f4f36c300303dc3818110c75a</sub_category>
+        <sys_class_name>x_153465_discovert_discover_routing_template</sys_class_name>
+        <sys_created_by>rjoy</sys_created_by>
+        <sys_created_on>2017-11-03 17:35:20</sys_created_on>
+        <sys_id>ad04c8144fde8300303dc3818110c736</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_updated_by>rjoy</sys_updated_by>
+        <sys_updated_on>2018-04-24 14:57:59</sys_updated_on>
+        <tasker_type display_value="Standard Tasker">4a55d9b4db3c53003a8d6be3ca96194c</tasker_type>
+        <tasker_type_actions/>
+        <tasking_authority display_value="J2">c76e15a2dbb057003a8d6be3ca961966</tasking_authority>
+        <template_name>J2 Guidance Document Review (Streamlined)</template_name>
+        <warning_hours>8</warning_hours>
+    </x_153465_discovert_discover_routing_template>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color/>
+        <compressed>true</compressed>
+        <content_type>application/octet-stream</content_type>
+        <encryption_context/>
+        <file_name>3.url</file_name>
+        <image_height/>
+        <image_width/>
+        <size_bytes>390</size_bytes>
+        <size_compressed>261</size_compressed>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-11-10 17:17:44</sys_created_on>
+        <sys_id>341448ea4f5ec700303dc3818110c71e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-11-10 17:17:44</sys_updated_on>
+        <table_name>x_153465_discovert_discover_routing_template</table_name>
+        <table_sys_id>ad04c8144fde8300303dc3818110c736</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="3.url" sys_id="341448ea4f5ec700303dc3818110c71e">341448ea4f5ec700303dc3818110c71e</sys_attachment>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-11-10 17:17:44</sys_created_on>
+        <sys_id>741448ea4f5ec700303dc3818110c71e</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>hU9NS8NAEL0H8jPqySa73U2yFRZR00OhoFQ8SJEl7o5toMmG2WmqiP/d1K9DKTiH4fF4896b1TtjbMLlFRsP4Gfd/KLvkfnHUxzdoe+E5tNzzuNoNW8JsAW633gku6NBMC8XdSAdRw/Lhd4QdeEiTR30vJhMsyQA9rWFcev3ifVN+mp4JmSeGVcH63tA+kMG/Y4gcf4yvAVTO62eq4IxruSLAyUYE0w4KxRXnDNbcDgbdF2FjUGwHp2hCtdA+t+I4zv0ey1OkEHnx+z28OrBpG7XBE23rQhGoqwck1ZxebqpyEfZ7HZZzpbXj18FzGAFGEef4V/iXIYBAAA=</data>
+        <length>336</length>
+        <position>1</position>
+        <sys_attachment display_value="3.url" sys_id="341448ea4f5ec700303dc3818110c71e">341448ea4f5ec700303dc3818110c71e</sys_attachment>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-11-10 17:17:44</sys_created_on>
+        <sys_id>f41448ea4f5ec700303dc3818110c71e</sys_id>
+    </sys_attachment_doc>
+</record_update>

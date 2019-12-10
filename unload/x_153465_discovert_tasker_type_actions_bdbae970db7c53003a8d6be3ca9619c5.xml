@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_153465_discovert_tasker_type_actions">
+    <x_153465_discovert_tasker_type_actions action="INSERT_OR_UPDATE">
+        <action>Concur &amp; sign</action>
+        <sys_created_by>rjoy</sys_created_by>
+        <sys_created_on>2018-03-09 20:54:05</sys_created_on>
+        <sys_id>bdbae970db7c53003a8d6be3ca9619c5</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>tnguyen</sys_updated_by>
+        <sys_updated_on>2018-10-24 18:56:06</sys_updated_on>
+        <tasker_type display_value="Concur with signature">0665d9b4db3c53003a8d6be3ca96199c</tasker_type>
+    </x_153465_discovert_tasker_type_actions>
+</record_update>
